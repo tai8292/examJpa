@@ -27,11 +27,7 @@ public class CompanyController {
     }
 
     @RequestMapping(path = "/add", method = RequestMethod.POST)
-    public String addCompany(@ModelAttribute("name") String name, @ModelAttribute("business") String business,
-                             @ModelAttribute("cityid") Long city_id) {
-        Company company = new Company();
-        company.setName(name);
-        company.setBusiness_license(business);
+    public String addCompany(@ModelAttribute("company")Company company,@ModelAttribute("city_id")Long city_id ) {
         company.setCity(cityRepository.findOne(city_id));
         company.setCreate_date(new Date());
         company.setModified_date(new Date());

@@ -2,6 +2,7 @@ package hello.controllers;
 
 import hello.entities.City;
 import hello.repositories.CityRepository;
+import hello.repositories.CompanyRepository;
 import hello.repositories.CountryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -20,6 +21,9 @@ public class CityController {
     @Autowired
     CountryRepository countryRepository;
 
+    @Autowired
+    CompanyRepository companyRepository;
+
     @RequestMapping(path = "/all", method = RequestMethod.GET)
     public Page<City> getListCity(@RequestParam int pagenum) {
         PageRequest pageRequest = new PageRequest(pagenum - 1, 10);
@@ -27,28 +31,35 @@ public class CityController {
     }
 
     @RequestMapping(path = "/add", method = RequestMethod.POST)
-    public String addCity(@ModelAttribute("code") String code, @ModelAttribute("name") String name,
-                             @ModelAttribute("country_id") Long country_id) {
-        City city = new City();
-        city.setCode(code);
-        city.setName(name);
-        city.setCountry(countryRepository.findOne(country_id));
-        city.setCreate_date(new Date());
-        city.setModified_date(new Date());
-        cityRepository.save(city);
-        return "Save";
+    public String addCity(@ModelAttribute("city")City city ,@ModelAttribute("country_id") Long country_id) {
+        if(countryRepository.exists(country_id)) {
+            city.setCountry(countryRepository.findOne(country_id));
+            city.setCreate_date(new Date());
+            city.setModified_date(new Date());
+            cityRepository.save(city);
+            return "Save";
+        }
+        return "country id is not exist";
     }
 
     @RequestMapping(path = "/delete", method = RequestMethod.DELETE)
     public String deleteCity(@RequestParam Long id)
     {
-        try {
-            cityRepository.delete(id);
-            return "delete";
-        }
-        catch (Exception e)
+        if(cityRepository.exists(id))
         {
-            return ""+e;
+            if(companyRepository.findByCityId(id)!=null)
+            {
+                return "";
+            }
+            else
+            {
+                countryRepository.delete(id);
+                return "delete";
+            }
+        }
+        else
+        {
+            return "Company ís not exist";
         }
     }
 }
