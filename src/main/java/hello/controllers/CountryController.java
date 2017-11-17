@@ -1,12 +1,16 @@
 package hello.controllers;
 
+import hello.dto.CountryDto;
 import hello.entities.City;
 import hello.entities.Country;
 import hello.repositories.CityRepository;
 import hello.repositories.CountryRepository;
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
@@ -22,6 +26,9 @@ public class CountryController {
     @Autowired
     CityRepository cityRepository;
 
+    @Autowired
+    ModelMapper modelMapper;
+
     @RequestMapping(path = "/all", method = RequestMethod.GET)
     public Page<Country> getListCountry(@RequestParam int pagenum) {
         PageRequest pageRequest = new PageRequest(pagenum - 1, 10);
@@ -30,11 +37,13 @@ public class CountryController {
 
 
     @RequestMapping(path = "add", method = RequestMethod.POST)
-    public String addCountry(@ModelAttribute("country") Country country) {
+    public ResponseEntity<Country> addCountry(@RequestBody CountryDto countryDto) {
+        Country country = new Country();
+        country.setName(countryDto.getName());
+        country.setCode(countryDto.getCode());
         country.setCreated_date(new Date());
         country.setModified_date(new Date());
-        countryRepository.save(country);
-        return "Save";
+        return new ResponseEntity<Country>(HttpStatus.CREATED);
     }
 
     @RequestMapping(path = "/delete", method = RequestMethod.DELETE)
@@ -49,5 +58,4 @@ public class CountryController {
         }
         return "Country is not exist";
     }
-
 }

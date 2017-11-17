@@ -1,9 +1,12 @@
 package hello.controllers;
 
+import hello.dto.CityDto;
 import hello.entities.City;
+import hello.entities.Country;
 import hello.repositories.CityRepository;
 import hello.repositories.CompanyRepository;
 import hello.repositories.CountryRepository;
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -31,15 +34,18 @@ public class CityController {
     }
 
     @RequestMapping(path = "/add", method = RequestMethod.POST)
-    public String addCity(@ModelAttribute("city") City city, @ModelAttribute("country_id") Long country_id) {
-        if (countryRepository.exists(country_id)) {
-            city.setCountry(countryRepository.findOne(country_id));
-            city.setCreate_date(new Date());
-            city.setModified_date(new Date());
-            cityRepository.save(city);
-            return "Save";
-        }
-        return "country id is not exist";
+    public CityDto addCity(@RequestBody CityDto cityDto) {
+
+        Country country = countryRepository.findOne(cityDto.getCountryDto().getId());
+
+        City city = new City();
+        city.setName(cityDto.getName());
+        city.setCode(cityDto.getCode());
+        city.setCountry(country);
+        city.setCreate_date(new Date());
+        city.setModified_date(new Date());
+        cityRepository.save(city);
+        return cityDto;
     }
 
     @RequestMapping(path = "/delete", method = RequestMethod.DELETE)
