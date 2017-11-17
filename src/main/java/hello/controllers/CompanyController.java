@@ -28,11 +28,14 @@ public class CompanyController {
 
     @RequestMapping(path = "/add", method = RequestMethod.POST)
     public String addCompany(@ModelAttribute("company")Company company,@ModelAttribute("city_id")Long city_id ) {
-        company.setCity(cityRepository.findOne(city_id));
-        company.setCreate_date(new Date());
-        company.setModified_date(new Date());
-        companyRepository.save(company);
-        return "Save";
+        if(cityRepository.exists(city_id)) {
+            company.setCity(cityRepository.findOne(city_id));
+            company.setCreate_date(new Date());
+            company.setModified_date(new Date());
+            companyRepository.save(company);
+            return "Save";
+        }
+        return "city id is not exist";
     }
 
     @RequestMapping(path = "/delete", method = RequestMethod.DELETE)

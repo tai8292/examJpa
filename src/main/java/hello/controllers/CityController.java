@@ -31,8 +31,8 @@ public class CityController {
     }
 
     @RequestMapping(path = "/add", method = RequestMethod.POST)
-    public String addCity(@ModelAttribute("city")City city ,@ModelAttribute("country_id") Long country_id) {
-        if(countryRepository.exists(country_id)) {
+    public String addCity(@ModelAttribute("city") City city, @ModelAttribute("country_id") Long country_id) {
+        if (countryRepository.exists(country_id)) {
             city.setCountry(countryRepository.findOne(country_id));
             city.setCreate_date(new Date());
             city.setModified_date(new Date());
@@ -43,23 +43,15 @@ public class CityController {
     }
 
     @RequestMapping(path = "/delete", method = RequestMethod.DELETE)
-    public String deleteCity(@RequestParam Long id)
-    {
-        if(cityRepository.exists(id))
-        {
-            if(companyRepository.findByCityId(id)!=null)
-            {
-                return "";
-            }
-            else
-            {
+    public String deleteCity(@RequestParam Long id) {
+        if (cityRepository.exists(id)) {
+            if (companyRepository.findByCityId(id) != null) {
+                return "City be using ";
+            } else {
                 countryRepository.delete(id);
                 return "delete";
             }
         }
-        else
-        {
-            return "Company ís not exist";
-        }
+        return "City ís not exist";
     }
 }

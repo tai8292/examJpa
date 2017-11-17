@@ -9,6 +9,6 @@ import java.util.List;
 
 public interface CompanyRepository extends JpaRepository<Company, Long>{
 
-    @Query("select c from Company c LEFT JOIN c.city ct where ct.id =:city_ ")
-    public List<Company> findByCityId(@Param("city_id")Long city_id);id
+    @Query("select c from Company c LEFT JOIN c.city ct where ct.id =:city_id ")
+    public List<Company> findByCityId(@Param("city_id")Long city_id);
 }

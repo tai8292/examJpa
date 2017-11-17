@@ -29,10 +29,8 @@ public class CountryController {
     }
 
 
-
-    @RequestMapping(path = "add",method = RequestMethod.POST)
-    public String addCountry(@ModelAttribute("country") Country country)
-    {
+    @RequestMapping(path = "add", method = RequestMethod.POST)
+    public String addCountry(@ModelAttribute("country") Country country) {
         country.setCreated_date(new Date());
         country.setModified_date(new Date());
         countryRepository.save(country);
@@ -41,22 +39,15 @@ public class CountryController {
 
     @RequestMapping(path = "/delete", method = RequestMethod.DELETE)
     public String deleteCountry(@RequestParam Long id) {
-        if(countryRepository.exists(id))
-        {
-            if(cityRepository.findByCountryId(id)!=null)
-            {
-                return "Country dang duoc su dung";
-            }
-            else
-            {
+        if (countryRepository.exists(id)) {
+            if (cityRepository.findByCountryId(id) != null) {
+                return "Country be using";
+            } else {
                 countryRepository.delete(id);
                 return "delete";
             }
         }
-        else
-        {
-            return "country khong ton tai";
-        }
+        return "Country is not exist";
     }
 
 }
