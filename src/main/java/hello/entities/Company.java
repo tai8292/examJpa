@@ -13,20 +13,34 @@ public class Company {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String name;
-    private String business_license;
+    private String businessLicense;
     @ManyToOne
     private City city;
-    @JsonFormat(pattern="yyyy-MM-dd")
+    @JsonFormat(pattern = "yyyy-MM-dd")
     private Date create_date;
-    @JsonFormat(pattern="yyyy-MM-dd")
+    @JsonFormat(pattern = "yyyy-MM-dd")
     private Date modified_date;
 
     public Company() {
     }
 
-    public Company(String name, String business_license, City city, Date create_date, Date modified_date) {
+    public Company(Long id, String name) {
+        this.id = id;
         this.name = name;
-        this.business_license = business_license;
+    }
+
+    public Company(Long id, String name, Long city_id, String city_name) {
+        System.out.println("id: " + id);
+        this.id = id;
+        this.name = name;
+        this.city = new City();
+        this.city.setId(city_id);
+        this.city.setName(city_name);
+    }
+
+    public Company(String name, String businessLicense, City city, Date create_date, Date modified_date) {
+        this.name = name;
+        this.businessLicense = businessLicense;
         this.city = city;
         this.create_date = create_date;
         this.modified_date = modified_date;
@@ -48,12 +62,12 @@ public class Company {
         this.name = name;
     }
 
-    public String getBusiness_license() {
-        return business_license;
+    public String getBusinessLicense() {
+        return businessLicense;
     }
 
-    public void setBusiness_license(String business_license) {
-        this.business_license = business_license;
+    public void setBusinessLicense(String businessLicense) {
+        this.businessLicense = businessLicense;
     }
 
     public City getCity() {
@@ -85,7 +99,7 @@ public class Company {
         return "Company{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", business_license='" + business_license + '\'' +
+                ", businessLicense='" + businessLicense + '\'' +
                 ", city=" + city +
                 ", create_date=" + create_date +
                 ", modified_date=" + modified_date +

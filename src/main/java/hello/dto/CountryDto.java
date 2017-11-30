@@ -1,15 +1,13 @@
 package hello.dto;
 
-import hello.entities.Country;
-import org.modelmapper.ModelMapper;
-import org.springframework.beans.factory.annotation.Autowired;
-
+import javax.validation.constraints.Size;
 import java.util.Date;
 
 public class CountryDto {
 
     private Long id;
     private String name;
+    @Size(min=5,max=10)
     private String code;
     private Date created_date;
     private Date modified_date;

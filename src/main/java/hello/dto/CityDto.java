@@ -1,15 +1,13 @@
 package hello.dto;
 
-import hello.entities.City;
-import org.modelmapper.ModelMapper;
-import org.springframework.beans.factory.annotation.Autowired;
-
+import javax.validation.constraints.Size;
 import java.util.Date;
 
 public class CityDto {
 
     private Long id;
     private String code;
+    @Size(min = 5)
     private String name;
     private Date create_date;
     private Date modified_date;

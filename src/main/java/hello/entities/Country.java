@@ -14,13 +14,14 @@ public class Country {
     private Long id;
     private String name;
     private String code;
-    @JsonFormat(pattern="yyyy-MM-dd")
+    @JsonFormat(pattern = "dd-MM-yyyy")
     private Date created_date;
-    @JsonFormat(pattern="yyyy-MM-dd")
+    @JsonFormat(pattern = "dd-MM-yyyy")
     private Date modified_date;
 
 
     public Country() {
+
     }
 
     public Country(String name, String code, Date created_date, Date modified_date) {

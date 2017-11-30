@@ -12,6 +12,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.Date;
 
 @RestController
@@ -34,7 +35,7 @@ public class CityController {
     }
 
     @RequestMapping(path = "/add", method = RequestMethod.POST)
-    public CityDto addCity(@RequestBody CityDto cityDto) {
+    public CityDto addCity(@RequestBody @Valid CityDto cityDto) {
 
         Country country = countryRepository.findOne(cityDto.getCountryDto().getId());
 
