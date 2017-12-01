@@ -10,6 +10,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -29,9 +30,9 @@ public class CityController {
     CompanyRepository companyRepository;
 
     @RequestMapping(path = "/all", method = RequestMethod.GET)
-    public Page<City> getListCity(@RequestParam int pagenum) {
+    public ResponseEntity<Page<City>> getListCity(@RequestParam int pagenum) {
         PageRequest pageRequest = new PageRequest(pagenum - 1, 10);
-        return cityRepository.findAll(pageRequest);
+        return ResponseEntity.ok(cityRepository.findAll(pageRequest));
     }
 
     @RequestMapping(path = "/add", method = RequestMethod.POST)

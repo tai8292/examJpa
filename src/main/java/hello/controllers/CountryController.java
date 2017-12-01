@@ -1,24 +1,26 @@
 package hello.controllers;
 
 
-import hello.dto.CountryDto;
-import hello.entities.City;
-import hello.entities.Country;
-import hello.repositories.CityRepository;
-import hello.repositories.CountryRepository;
-import org.modelmapper.ModelMapper;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Sort;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+        import hello.dto.CountryDto;
+        import hello.entities.City;
+        import hello.entities.Country;
+        import hello.repositories.CityRepository;
+        import hello.repositories.CountryRepository;
+        import org.modelmapper.ModelMapper;
+        import org.springframework.beans.factory.annotation.Autowired;
+        import org.springframework.data.domain.Page;
+        import org.springframework.data.domain.PageRequest;
+        import org.springframework.data.domain.Sort;
+        import org.springframework.http.HttpStatus;
+        import org.springframework.http.MediaType;
+        import org.springframework.http.ResponseEntity;
+        import org.springframework.web.bind.annotation.*;
 
-import javax.validation.Valid;
-import java.util.Date;
-import java.util.List;
+        import javax.validation.Valid;
+        import java.net.URI;
+        import java.net.URISyntaxException;
+        import java.util.Date;
+        import java.util.List;
 
 @RestController
 @RequestMapping(path = "/country")
@@ -34,33 +36,37 @@ public class CountryController {
     ModelMapper modelMapper;
 
     @RequestMapping(path = "/all", method = RequestMethod.GET)
-    public Page<Country> getListCountry(@RequestParam int pagenum) {
-        PageRequest pageRequest = new PageRequest(pagenum - 1, 10, Sort.Direction.ASC,"code");
-        return countryRepository.findAll(pageRequest);
+    public ResponseEntity<List<Country>> getListCountry(@RequestParam int pagenum) {
+        //    PageRequest pageRequest = new PageRequest(pagenum - 1, 10, Sort.Direction.ASC,"code");
+        return ResponseEntity.ok(countryRepository.findAll());
     }
 
 
-    @RequestMapping(path = "add", method = RequestMethod.POST)
-    public ResponseEntity<Country> addCountry(@RequestBody @Valid CountryDto countryDto) {
-        Country country = new Country();
-        country.setName(countryDto.getName());
-        country.setCode(countryDto.getCode());
-        country.setCreated_date(new Date());
-        country.setModified_date(new Date());
-        countryRepository.save(country);
-        return new ResponseEntity<Country>(HttpStatus.CREATED);
+    @RequestMapping(path = "/add", method = RequestMethod.POST)
+    public ResponseEntity<Country> addCountry(@RequestBody Country country) {
+        Country country1 = countryRepository.save(country);
+        return ResponseEntity.status(HttpStatus.CREATED).body(country1);
+
+    }
+
+    @RequestMapping(path = "/find", method = RequestMethod.GET)
+    public ResponseEntity<Country> getCountry(@RequestParam Long id) {
+        if (countryRepository.exists(id)) {
+            return ResponseEntity.ok(countryRepository.findOne(id));
+        }
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
     }
 
     @RequestMapping(path = "/delete", method = RequestMethod.DELETE)
-    public String deleteCountry(@RequestParam Long id) {
+    public ResponseEntity<Country> deleteCountry(@RequestParam Long id) {
         if (countryRepository.exists(id)) {
             if (cityRepository.findByCountryId(id) != null) {
-                return "Country be using";
-            } else {
                 countryRepository.delete(id);
-                return "delete";
+                return ResponseEntity.ok().build();
+            } else {
+                return ResponseEntity.status(HttpStatus.CONFLICT).build();
             }
         }
-        return "Country is not exist";
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
     }
 }

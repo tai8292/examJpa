@@ -9,6 +9,6 @@ import java.util.List;
 
 public interface CityRepository extends JpaRepository<City, Long>{
 
-    @Query("select ct from City ct join ct.country c where c.id =:country_id")
-    public List<City> findByCountryId(@Param("country_id") Long country_id);
+    @Query("select ct from City ct where ct.country.id =:country_id")
+    List<City> findByCountryId(@Param("country_id") Long country_id);
 }
