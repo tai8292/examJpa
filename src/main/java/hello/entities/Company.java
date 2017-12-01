@@ -17,9 +17,9 @@ public class Company {
     @ManyToOne
     private City city;
     @JsonFormat(pattern = "yyyy-MM-dd")
-    private Date create_date;
+    private Date createDate;
     @JsonFormat(pattern = "yyyy-MM-dd")
-    private Date modified_date;
+    private Date modifiedDate;
 
     public Company() {
     }
@@ -38,12 +38,12 @@ public class Company {
         this.city.setName(city_name);
     }
 
-    public Company(String name, String businessLicense, City city, Date create_date, Date modified_date) {
+    public Company(String name, String businessLicense, City city, Date createDate, Date modifiedDate) {
         this.name = name;
         this.businessLicense = businessLicense;
         this.city = city;
-        this.create_date = create_date;
-        this.modified_date = modified_date;
+        this.createDate = createDate;
+        this.modifiedDate = modifiedDate;
     }
 
     public Long getId() {
@@ -78,20 +78,20 @@ public class Company {
         this.city = city;
     }
 
-    public Date getCreate_date() {
-        return create_date;
+    public Date getCreateDate() {
+        return createDate;
     }
 
-    public void setCreate_date(Date create_date) {
-        this.create_date = create_date;
+    public void setCreateDate(Date createDate) {
+        this.createDate = createDate;
     }
 
-    public Date getModified_date() {
-        return modified_date;
+    public Date getModifiedDate() {
+        return modifiedDate;
     }
 
-    public void setModified_date(Date modified_date) {
-        this.modified_date = modified_date;
+    public void setModifiedDate(Date modifiedDate) {
+        this.modifiedDate = modifiedDate;
     }
 
     @Override
@@ -101,8 +101,8 @@ public class Company {
                 ", name='" + name + '\'' +
                 ", businessLicense='" + businessLicense + '\'' +
                 ", city=" + city +
-                ", create_date=" + create_date +
-                ", modified_date=" + modified_date +
+                ", createDate=" + createDate +
+                ", modifiedDate=" + modifiedDate +
                 '}';
     }
 }

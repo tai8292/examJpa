@@ -6,9 +6,9 @@ public class CompanyDto {
 
     private Long id;
     private String name;
-    private String business_license;
-    private Date create_date;
-    private Date modified_date;
+    private String businessLicense;
+    private Date createDate;
+    private Date modifiedDate;
     private CityDto cityDto;
 
     public Long getId() {
@@ -27,28 +27,28 @@ public class CompanyDto {
         this.name = name;
     }
 
-    public String getBusiness_license() {
-        return business_license;
+    public String getBusinessLicense() {
+        return businessLicense;
     }
 
-    public void setBusiness_license(String business_license) {
-        this.business_license = business_license;
+    public void setBusinessLicense(String businessLicense) {
+        this.businessLicense = businessLicense;
     }
 
-    public Date getCreate_date() {
-        return create_date;
+    public Date getCreateDate() {
+        return createDate;
     }
 
-    public void setCreate_date(Date create_date) {
-        this.create_date = create_date;
+    public void setCreateDate(Date createDate) {
+        this.createDate = createDate;
     }
 
-    public Date getModified_date() {
-        return modified_date;
+    public Date getModifiedDate() {
+        return modifiedDate;
     }
 
-    public void setModified_date(Date modified_date) {
-        this.modified_date = modified_date;
+    public void setModifiedDate(Date modifiedDate) {
+        this.modifiedDate = modifiedDate;
     }
 
     public CityDto getCityDto() {

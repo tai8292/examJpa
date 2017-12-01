@@ -7,10 +7,9 @@ public class CityDto {
 
     private Long id;
     private String code;
-    @Size(min = 5)
     private String name;
-    private Date create_date;
-    private Date modified_date;
+    private Date createDate;
+    private Date modifiedDate;
     private CountryDto countryDto;
 
     public Long getId() {
@@ -37,20 +36,20 @@ public class CityDto {
         this.name = name;
     }
 
-    public Date getCreate_date() {
-        return create_date;
+    public Date getCreateDate() {
+        return createDate;
     }
 
-    public void setCreate_date(Date create_date) {
-        this.create_date = create_date;
+    public void setCreateDate(Date createDate) {
+        this.createDate = createDate;
     }
 
-    public Date getModified_date() {
-        return modified_date;
+    public Date getModifiedDate() {
+        return modifiedDate;
     }
 
-    public void setModified_date(Date modified_date) {
-        this.modified_date = modified_date;
+    public void setModifiedDate(Date modifiedDate) {
+        this.modifiedDate = modifiedDate;
     }
 
     public CountryDto getCountryDto() {
@@ -67,8 +66,8 @@ public class CityDto {
                 "id=" + id +
                 ", code='" + code + '\'' +
                 ", name='" + name + '\'' +
-                ", create_date=" + create_date +
-                ", modified_date=" + modified_date +
+                ", createDate=" + createDate +
+                ", modifiedDate=" + modifiedDate +
                 ", countryDto=" + countryDto +
                 '}';
     }

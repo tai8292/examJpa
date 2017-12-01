@@ -9,8 +9,8 @@ public class CountryDto {
     private String name;
     @Size(min=5,max=10)
     private String code;
-    private Date created_date;
-    private Date modified_date;
+    private Date createdDate;
+    private Date modifiedDate;
 
     public Long getId() {
         return id;
@@ -36,20 +36,20 @@ public class CountryDto {
         this.code = code;
     }
 
-    public Date getCreated_date() {
-        return created_date;
+    public Date getCreatedDate() {
+        return createdDate;
     }
 
-    public void setCreated_date(Date created_date) {
-        this.created_date = created_date;
+    public void setCreatedDate(Date createdDate) {
+        this.createdDate = createdDate;
     }
 
-    public Date getModified_date() {
-        return modified_date;
+    public Date getModifiedDate() {
+        return modifiedDate;
     }
 
-    public void setModified_date(Date modified_date) {
-        this.modified_date = modified_date;
+    public void setModifiedDate(Date modifiedDate) {
+        this.modifiedDate = modifiedDate;
     }
 
     @Override
@@ -58,8 +58,8 @@ public class CountryDto {
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", code='" + code + '\'' +
-                ", created_date=" + created_date +
-                ", modified_date=" + modified_date +
+                ", createdDate=" + createdDate +
+                ", modifiedDate=" + modifiedDate +
                 '}';
     }
 }

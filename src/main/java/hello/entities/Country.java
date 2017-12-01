@@ -15,20 +15,20 @@ public class Country {
     private String name;
     private String code;
     @JsonFormat(pattern = "dd-MM-yyyy")
-    private Date created_date;
+    private Date createdDate;
     @JsonFormat(pattern = "dd-MM-yyyy")
-    private Date modified_date;
+    private Date modifiedDate;
 
 
     public Country() {
 
     }
 
-    public Country(String name, String code, Date created_date, Date modified_date) {
+    public Country(String name, String code, Date createdDate, Date modifiedDate) {
         this.name = name;
         this.code = code;
-        this.created_date = created_date;
-        this.modified_date = modified_date;
+        this.createdDate = createdDate;
+        this.modifiedDate = modifiedDate;
     }
 
     public Long getId() {
@@ -55,20 +55,20 @@ public class Country {
         this.code = code;
     }
 
-    public Date getCreated_date() {
-        return created_date;
+    public Date getCreatedDate() {
+        return createdDate;
     }
 
-    public void setCreated_date(Date created_date) {
-        this.created_date = created_date;
+    public void setCreatedDate(Date createdDate) {
+        this.createdDate = createdDate;
     }
 
-    public Date getModified_date() {
-        return modified_date;
+    public Date getModifiedDate() {
+        return modifiedDate;
     }
 
-    public void setModified_date(Date modified_date) {
-        this.modified_date = modified_date;
+    public void setModifiedDate(Date modifiedDate) {
+        this.modifiedDate = modifiedDate;
     }
 
     @Override
@@ -77,8 +77,8 @@ public class Country {
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", code='" + code + '\'' +
-                ", created_date=" + created_date +
-                ", modified_date=" + modified_date +
+                ", createdDate=" + createdDate +
+                ", modifiedDate=" + modifiedDate +
                 '}';
     }
 }

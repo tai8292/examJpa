@@ -17,9 +17,9 @@ public class City {
     @ManyToOne
     private Country country;
     @JsonFormat(pattern="yyyy-MM-dd")
-    private Date create_date;
+    private Date createDate;
     @JsonFormat(pattern="yyyy-MM-dd")
-    private Date modified_date;
+    private Date modifiedDate;
 
     public City() {
     }
@@ -28,12 +28,12 @@ public class City {
         this.id = id;
         this.name = name;
     }
-    public City(String name, String code, Country country, Date create_date, Date modified_date) {
+    public City(String name, String code, Country country, Date createDate, Date modifiedDate) {
         this.name = name;
         this.code = code;
         this.country = country;
-        this.create_date = create_date;
-        this.modified_date = modified_date;
+        this.createDate = createDate;
+        this.modifiedDate = modifiedDate;
     }
 
     public Long getId() {
@@ -68,20 +68,20 @@ public class City {
         this.country = country;
     }
 
-    public Date getCreate_date() {
-        return create_date;
+    public Date getCreateDate() {
+        return createDate;
     }
 
-    public void setCreate_date(Date create_date) {
-        this.create_date = create_date;
+    public void setCreateDate(Date createDate) {
+        this.createDate = createDate;
     }
 
-    public Date getModified_date() {
-        return modified_date;
+    public Date getModifiedDate() {
+        return modifiedDate;
     }
 
-    public void setModified_date(Date modified_date) {
-        this.modified_date = modified_date;
+    public void setModifiedDate(Date modifiedDate) {
+        this.modifiedDate = modifiedDate;
     }
 
     @Override
@@ -91,8 +91,8 @@ public class City {
                 ", name='" + name + '\'' +
                 ", code='" + code + '\'' +
                 ", country=" + country +
-                ", create_date=" + create_date +
-                ", modified_date=" + modified_date +
+                ", createDate=" + createDate +
+                ", modifiedDate=" + modifiedDate +
                 '}';
     }
 }
