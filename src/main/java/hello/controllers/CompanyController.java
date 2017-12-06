@@ -3,6 +3,7 @@ package hello.controllers;
 import hello.dto.CompanyDto;
 import hello.entities.City;
 import hello.entities.Company;
+import hello.entities.Country;
 import hello.repositories.CityRepository;
 import hello.repositories.CompanyRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,7 +33,7 @@ public class CompanyController {
                 new Sort.Order(Sort.Direction.ASC, "id"));
         PageRequest pageRequest = new PageRequest(pagenum - 1, size, sort);
         Page<Company> page = companyRepository.findAll(pageRequest);
-        return new ResponseEntity<>(page,HttpStatus.OK);
+        return new ResponseEntity<>(page, HttpStatus.OK);
     }
 
     @RequestMapping(path = "/add", method = RequestMethod.POST)
@@ -48,12 +49,10 @@ public class CompanyController {
                 company.setCreateDate(new Date());
                 company.setModifiedDate(new Date());
                 companyRepository.save(company);
-                return new ResponseEntity<>(company,HttpStatus.CREATED);
+                return new ResponseEntity<>(company, HttpStatus.CREATED);
             }
-            return new ResponseEntity<>("City id is not exist",HttpStatus.NOT_FOUND);
-        }
-        catch (Exception e)
-        {
+            return new ResponseEntity<>("City id is not exist", HttpStatus.NOT_FOUND);
+        } catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
     }
@@ -64,22 +63,24 @@ public class CompanyController {
             companyRepository.delete(id);
             return new ResponseEntity<>(HttpStatus.OK);
         }
-        return new ResponseEntity<>("Id isn't exist",HttpStatus.NOT_FOUND);
+        return new ResponseEntity<>("Id isn't exist", HttpStatus.NOT_FOUND);
     }
 
-    @RequestMapping(path = "/path", method = RequestMethod.GET)
-    public List<Company> getByCity(@RequestParam Long cityId) {
-        return companyRepository.findByCityId(cityId);
+    @RequestMapping(path = "/find", method = RequestMethod.GET)
+    public ResponseEntity<?> findCompany(@RequestParam String value) {
+        List<Company> companyList = companyRepository.findByNameContainsOrBusinessLicenseContains(value, value);
+        if (companyList.size() == 0)
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        return new ResponseEntity<>(companyList, HttpStatus.OK);
     }
 
-    @RequestMapping(path = "/path1", method = RequestMethod.GET)
-    public List<Company> getByCity1() {
-        return companyRepository.findByCityId1();
+    @RequestMapping(path = "/findCountry", method = RequestMethod.GET)
+    public ResponseEntity<?> findByCountryName(@RequestParam String countryName) {
+        List<Company> companyList = companyRepository.findByCountryName(countryName);
+        if (companyList.size() != 0)
+            return new ResponseEntity<>(companyList, HttpStatus.OK);
+        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
-    @RequestMapping(path = "/path2", method = RequestMethod.GET)
-    public List<Company> getByCity2() {
-        return companyRepository.findByCityId2();
-    }
 
 }

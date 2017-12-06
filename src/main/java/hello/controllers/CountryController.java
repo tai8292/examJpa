@@ -20,6 +20,7 @@ import javax.validation.Valid;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.Date;
+import java.util.List;
 
 @RestController
 @RequestMapping(path = "/country")
@@ -56,17 +57,25 @@ public class CountryController {
                 countryRepository.delete(id);
                 return new ResponseEntity<>(HttpStatus.OK);
             } else {
-                return new ResponseEntity<>("City is used",HttpStatus.CONFLICT);
+                return new ResponseEntity<>("City is used", HttpStatus.CONFLICT);
             }
         }
-        return new ResponseEntity<>("id isn't exist",HttpStatus.NOT_FOUND);
+        return new ResponseEntity<>("id isn't exist", HttpStatus.NOT_FOUND);
     }
 
     @RequestMapping(path = "/{id}", method = RequestMethod.GET)
     public ResponseEntity<?> findById(@PathVariable Long id) {
         if (countryRepository.exists(id)) {
-            return new ResponseEntity<>(countryRepository.findOne(id),HttpStatus.OK);
+            return new ResponseEntity<>(countryRepository.findOne(id), HttpStatus.OK);
         }
         return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    }
+
+    @RequestMapping(path = "/find/business", method = RequestMethod.GET)
+    public ResponseEntity<?> findByBusinessCompany(@RequestParam String business) {
+        List<Country> countryList = countryRepository.findByBusinessCompany(business);
+        if (countryList.size() == 0)
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        return new ResponseEntity<>(countryList, HttpStatus.OK);
     }
 }
