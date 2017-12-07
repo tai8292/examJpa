@@ -17,7 +17,7 @@ public class City {
     @ManyToOne
     private Country country;
     @JsonFormat(pattern="yyyy-MM-dd")
-    private Date createDate;
+    private Date createdDate;
     @JsonFormat(pattern="yyyy-MM-dd")
     private Date modifiedDate;
 
@@ -28,11 +28,11 @@ public class City {
         this.id = id;
         this.name = name;
     }
-    public City(String name, String code, Country country, Date createDate, Date modifiedDate) {
+    public City(String name, String code, Country country, Date createdDate, Date modifiedDate) {
         this.name = name;
         this.code = code;
         this.country = country;
-        this.createDate = createDate;
+        this.createdDate = createdDate;
         this.modifiedDate = modifiedDate;
     }
 
@@ -68,12 +68,12 @@ public class City {
         this.country = country;
     }
 
-    public Date getCreateDate() {
-        return createDate;
+    public Date getCreatedDate() {
+        return createdDate;
     }
 
-    public void setCreateDate(Date createDate) {
-        this.createDate = createDate;
+    public void setCreatedDate(Date createdDate) {
+        this.createdDate = createdDate;
     }
 
     public Date getModifiedDate() {
@@ -91,7 +91,7 @@ public class City {
                 ", name='" + name + '\'' +
                 ", code='" + code + '\'' +
                 ", country=" + country +
-                ", createDate=" + createDate +
+                ", createdDate=" + createdDate +
                 ", modifiedDate=" + modifiedDate +
                 '}';
     }

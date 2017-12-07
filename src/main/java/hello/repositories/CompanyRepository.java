@@ -7,13 +7,13 @@ import org.springframework.data.repository.query.Param;
 
 import java.util.List;
 
-public interface CompanyRepository extends JpaRepository<Company, Long>{
+public interface CompanyRepository extends JpaRepository<Company, Long> {
 
-    @Query("select c from Company c where c.city.id=:city_id ")
-    List<Company> findByCityId(@Param("city_id")Long city_id);
+    @Query("select c from Company c left join c.city where c.city.id=:city_id ")
+    List<Company> findByCityId(@Param("city_id") Long city_id);
 
     List<Company> findByNameContainsOrBusinessLicenseContains(String name, String businessLicense);
 
-    @Query("select c from Company c join c.city ct join ct.country ctr where ctr.name =:countryName")
+    @Query("select c from Company c join c.city ct join ct.country ctr where ctr.name like %:countryName%")
     List<Company> findByCountryName(@Param("countryName") String countryName);
 }

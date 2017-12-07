@@ -2,23 +2,17 @@ package hello.controllers;
 
 
 import hello.dto.CountryDto;
-import hello.entities.City;
 import hello.entities.Country;
 import hello.repositories.CityRepository;
 import hello.repositories.CountryRepository;
-import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import javax.validation.Valid;
-import java.net.URI;
-import java.net.URISyntaxException;
 import java.util.Date;
 import java.util.List;
 

@@ -3,7 +3,6 @@ package hello.controllers;
 import hello.dto.CompanyDto;
 import hello.entities.City;
 import hello.entities.Company;
-import hello.entities.Country;
 import hello.repositories.CityRepository;
 import hello.repositories.CompanyRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -46,7 +45,7 @@ public class CompanyController {
                 company.setName(companyDto.getName());
                 company.setBusinessLicense(companyDto.getBusinessLicense());
                 company.setCity(city);
-                company.setCreateDate(new Date());
+                company.setCreatedDate(new Date());
                 company.setModifiedDate(new Date());
                 companyRepository.save(company);
                 return new ResponseEntity<>(company, HttpStatus.CREATED);
@@ -74,7 +73,7 @@ public class CompanyController {
         return new ResponseEntity<>(companyList, HttpStatus.OK);
     }
 
-    @RequestMapping(path = "/findCountry", method = RequestMethod.GET)
+    @RequestMapping(path = "/find/country", method = RequestMethod.GET)
     public ResponseEntity<?> findByCountryName(@RequestParam String countryName) {
         List<Company> companyList = companyRepository.findByCountryName(countryName);
         if (companyList.size() != 0)

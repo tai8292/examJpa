@@ -48,7 +48,7 @@ public class CityController {
                 city.setName(cityDto.getName());
                 city.setCode(cityDto.getCode());
                 city.setCountry(country);
-                city.setCreateDate(new Date());
+                city.setCreatedDate(new Date());
                 city.setModifiedDate(new Date());
                 cityRepository.save(city);
                 return new ResponseEntity(city, HttpStatus.CREATED);

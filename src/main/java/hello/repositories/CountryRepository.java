@@ -9,7 +9,7 @@ import java.util.List;
 
 public interface CountryRepository extends JpaRepository<Country, Long> {
 
-    @Query("select distinct c from Company cp join cp.city ct join ct.country c" +
-            " where cp.businessLicense = :business")
+    @Query("select distinct c from Company cp join cp.city ct join ct.country c " +
+            "where cp.businessLicense like %:business% order by c.id")
     List<Country> findByBusinessCompany(@Param("business") String business);
 }

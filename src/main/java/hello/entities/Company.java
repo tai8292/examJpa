@@ -17,7 +17,7 @@ public class Company {
     @ManyToOne
     private City city;
     @JsonFormat(pattern = "yyyy-MM-dd")
-    private Date createDate;
+    private Date createdDate;
     @JsonFormat(pattern = "yyyy-MM-dd")
     private Date modifiedDate;
 
@@ -38,11 +38,11 @@ public class Company {
         this.city.setName(city_name);
     }
 
-    public Company(String name, String businessLicense, City city, Date createDate, Date modifiedDate) {
+    public Company(String name, String businessLicense, City city, Date createdDate, Date modifiedDate) {
         this.name = name;
         this.businessLicense = businessLicense;
         this.city = city;
-        this.createDate = createDate;
+        this.createdDate = createdDate;
         this.modifiedDate = modifiedDate;
     }
 
@@ -78,12 +78,12 @@ public class Company {
         this.city = city;
     }
 
-    public Date getCreateDate() {
-        return createDate;
+    public Date getCreatedDate() {
+        return createdDate;
     }
 
-    public void setCreateDate(Date createDate) {
-        this.createDate = createDate;
+    public void setCreatedDate(Date createdDate) {
+        this.createdDate = createdDate;
     }
 
     public Date getModifiedDate() {
@@ -101,7 +101,7 @@ public class Company {
                 ", name='" + name + '\'' +
                 ", businessLicense='" + businessLicense + '\'' +
                 ", city=" + city +
-                ", createDate=" + createDate +
+                ", createdDate=" + createdDate +
                 ", modifiedDate=" + modifiedDate +
                 '}';
     }
