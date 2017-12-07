@@ -18,7 +18,6 @@ import java.util.List;
 import static org.junit.Assert.*;
 
 @RunWith(SpringRunner.class)
-@DataJpaTest
 public class CityRepositoryTest {
 
     @Autowired

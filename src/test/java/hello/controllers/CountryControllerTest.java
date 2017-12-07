@@ -19,16 +19,18 @@ import org.springframework.test.web.servlet.MockMvc;
 
 import javax.persistence.EntityManager;
 import java.awt.*;
+import java.sql.Array;
 import java.util.*;
+import java.util.List;
 
+import static org.hamcrest.collection.IsCollectionWithSize.hasSize;
 import static org.junit.Assert.*;
+import static org.mockito.BDDMockito.given;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @RunWith(SpringRunner.class)
-@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT, classes = Application.class)
-@AutoConfigureMockMvc
-@TestPropertySource(locations = "classpath:application.properties")
 public class CountryControllerTest {
 
     @Autowired
@@ -44,7 +46,6 @@ public class CountryControllerTest {
 
     @Test
     public void getListCountry() throws Exception {
-
 
     }
 
