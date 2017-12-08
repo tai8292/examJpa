@@ -27,10 +27,10 @@ public class CompanyController {
     CityRepository cityRepository;
 
     @RequestMapping(path = "/all", method = RequestMethod.GET)
-    public ResponseEntity<?> getListCompany(@RequestParam int pagenum, @RequestParam int size) {
+    public ResponseEntity<?> getListCompany(@RequestParam int pagenum) {
         Sort sort = new Sort(new Sort.Order(Sort.Direction.ASC, "businessLicense"),
                 new Sort.Order(Sort.Direction.ASC, "id"));
-        PageRequest pageRequest = new PageRequest(pagenum - 1, size, sort);
+        PageRequest pageRequest = new PageRequest(pagenum - 1, 10, sort);
         Page<Company> page = companyRepository.findAll(pageRequest);
         return new ResponseEntity<>(page, HttpStatus.OK);
     }

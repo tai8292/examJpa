@@ -25,8 +25,8 @@ public class CompanyRepositoryTest {
     EntityManager entityManager;
     @Autowired
     CompanyRepository companyRepository;
-    ArrayList<Company> companyList;
-    City city;
+    private ArrayList<Company> companyList;
+    private City city;
 
     @Before
     public void setUp() throws Exception {

@@ -98,7 +98,7 @@ public class CityController {
     }
 
     @RequestMapping(path = "find1", method = RequestMethod.GET)
-    public ResponseEntity<?> findByNameAndBusiness(@RequestParam String name, @RequestParam String business) {
+    public ResponseEntity<?> findByCountryNameAndCompanyBusiness(@RequestParam String name, @RequestParam String business) {
         List<City> cityList = cityRepository.findByCountryNameAndBusinessCompany(name, business);
         if (cityList.size() != 0)
             return new ResponseEntity<>(cityList, HttpStatus.OK);

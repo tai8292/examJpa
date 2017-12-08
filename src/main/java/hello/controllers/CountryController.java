@@ -69,7 +69,8 @@ public class CountryController {
     public ResponseEntity<?> findByBusinessCompany(@RequestParam String business) {
         List<Country> countryList = countryRepository.findByBusinessCompany(business);
         if (countryList.size() == 0)
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+            return new ResponseEntity<>("khong tim thay",HttpStatus.NOT_FOUND);
         return new ResponseEntity<>(countryList, HttpStatus.OK);
     }
+
 }

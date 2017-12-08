@@ -18,16 +18,17 @@ import java.util.List;
 import static org.junit.Assert.*;
 
 @RunWith(SpringRunner.class)
+@DataJpaTest
 public class CityRepositoryTest {
 
     @Autowired
     EntityManager entityManager;
     @Autowired
     CityRepository cityRepository;
-    List<City> cityList;
-    Country country;
-    City city;
-    Company company;
+    private List<City> cityList;
+    private Country country;
+    private City city;
+    private Company company;
 
     @Before
     public void setUp() throws Exception {
