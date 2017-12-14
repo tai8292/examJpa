@@ -12,7 +12,6 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import javax.persistence.EntityManager;
 
-import java.util.Arrays;
 import java.util.List;
 
 import static org.junit.Assert.*;
@@ -25,10 +24,8 @@ public class CityRepositoryTest {
     EntityManager entityManager;
     @Autowired
     CityRepository cityRepository;
-    private List<City> cityList;
     private Country country;
     private City city;
-    private Company company;
 
     @Before
     public void setUp() throws Exception {
@@ -36,10 +33,9 @@ public class CityRepositoryTest {
         country.setName("Viet Nam");
         city = new City();
         city.setCountry(country);
-        company = new Company();
+        Company company = new Company();
         company.setBusinessLicense("Edu");
         company.setCity(city);
-        cityList = Arrays.asList(city);
         entityManager.persist(country);
         entityManager.persist(city);
         entityManager.persist(company);

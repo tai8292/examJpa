@@ -1,116 +1,170 @@
 package hello.controllers;
 
+import hello.Application;
+import hello.dto.CityDto;
+import hello.dto.CountryDto;
 import hello.entities.City;
 import hello.entities.Company;
 import hello.entities.Country;
+import hello.repositories.CityRepository;
+import hello.repositories.CompanyRepository;
+import hello.repositories.CountryRepository;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
-import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageImpl;
-import org.springframework.http.HttpStatus;
+import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 
-import java.util.Arrays;
-import java.util.List;
-
+import static org.hamcrest.CoreMatchers.hasItem;
 import static org.hamcrest.collection.IsCollectionWithSize.hasSize;
-import static org.junit.Assert.*;
-import static org.hamcrest.CoreMatchers.is;
-import static org.mockito.BDDMockito.given;
+
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @RunWith(SpringRunner.class)
-@WebMvcTest(CityController.class)
+@SpringBootTest(classes = Application.class)
+@AutoConfigureMockMvc
 public class CityControllerTest {
 
     @Autowired
-    MockMvc mvc;
-    @MockBean
-    CityController cityController;
+    private MockMvc mvc;
+    private Country country;
+    private City city;
+
+    @Autowired
+    private CountryRepository countryRepository;
+    @Autowired
+    private CityRepository cityRepository;
+    @Autowired
+    private CompanyRepository companyRepository;
 
     @Before
     public void setUp() throws Exception {
+        companyRepository.deleteAll();
+        cityRepository.deleteAll();
+        countryRepository.deleteAll();
+
+        country = new Country();
+        country.setName("Viet Nam");
+        city = new City();
+        city.setName("Da Nang");
+        city.setCode("DN");
+        city.setCountry(country);
+
+        countryRepository.save(country);
+        cityRepository.save(city);
     }
 
     @Test
     public void getListCity() throws Exception {
-        Country country = new Country();
-        City city = new City();
-        city.setCountry(country);
-        city.setName("Da Nang");
-        List<City> cityList = Arrays.asList(city);
-        Page<City> page = new PageImpl<City>(cityList);
-        ResponseEntity responseEntity = new ResponseEntity(page, HttpStatus.OK);
-
-        given(cityController.getListCity(1)).willReturn(responseEntity);
-
-        mvc.perform(get("/city/all").param("pagenum",1+"").contentType(MediaType.APPLICATION_JSON))
+        mvc.perform(get("/city/all").param("pagenum",1+"")
+                .contentType(MediaType.APPLICATION_JSON_UTF8))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.totalPages",is(1)))
-                .andExpect(jsonPath("$.content[0].name",is("Da Nang")));
+                .andExpect(jsonPath("$.content.[*].name").value(hasItem(city.getName())))
+                .andExpect(jsonPath("$.content.[*].code").value(hasItem(city.getCode())))
+                .andExpect(jsonPath("$.content.[*].country.name").value(hasItem(city.getCountry().getName())));
     }
 
     @Test
-    public void addCity() throws Exception {
+    public void addCityCreate() throws Exception {
+        CityDto cityDto = new CityDto();
+        CountryDto countryDto = new CountryDto();
+        countryDto.setId(country.getId());
+        cityDto.setCountryDto(countryDto);
+
+        mvc.perform(post("/city/add").contentType(MediaType.APPLICATION_JSON_UTF8)
+                .content(TestUtil.convertObjectToJsonBytes(cityDto)))
+                .andExpect(status().isCreated());
+
     }
 
     @Test
-    public void deleteCity() throws Exception {
+    public void addCityCreateNotFound() throws Exception {
+        CityDto cityDto = new CityDto();
+        CountryDto countryDto = new CountryDto();
+        countryDto.setId(country.getId()+1);
+        cityDto.setCountryDto(countryDto);
+
+        mvc.perform(post("/city/add").contentType(MediaType.APPLICATION_JSON_UTF8)
+                .content(TestUtil.convertObjectToJsonBytes(cityDto)))
+                .andExpect(status().isNotFound());
+
+    }
+
+
+    @Test
+    public void deleteCityOk() throws Exception {
+        mvc.perform(delete("/city/delete").param("id",city.getId()+""))
+                .andExpect(status().isOk());
     }
 
     @Test
-    public void editCity() throws Exception {
+    public void deleteCityNotFound() throws Exception {
+        mvc.perform(delete("/city/delete").param("id",(city.getId()+1)+""))
+                .andExpect(status().isNotFound());
     }
 
     @Test
-    public void findByBusinessCompany() throws Exception {
-        City city = new City();
-        city.setName("Da Nang");
+    public void deleteCityConFlict() throws Exception {
         Company company = new Company();
         company.setCity(city);
-        company.setBusinessLicense("Edu");
+        companyRepository.save(company);
 
-        List<City> cityList = Arrays.asList(city);
-        ResponseEntity responseEntity = new ResponseEntity(cityList,HttpStatus.OK);
-
-        given(cityController.findByBusinessCompany("Edu")).willReturn(responseEntity);
-
-        mvc.perform(get("/city/findByBusiness").param("business","Edu").contentType(MediaType.APPLICATION_JSON))
-                .andExpect(status().isOk())
-                .andExpect(jsonPath("$[0].name",is("Da Nang")));
+        mvc.perform(delete("/city/delete").param("id",city.getId()+""))
+                .andExpect(status().isConflict());
     }
 
     @Test
-    public void findByCountryNameAndCompanyBusiness() throws Exception {
-        Country country = new Country();
-        country.setName("Viet Nam");
-        City city = new City();
-        city.setName("Da Nang");
-        city.setCountry(country);
+    public void findByBusinessCompanyOk() throws Exception {
         Company company = new Company();
         company.setBusinessLicense("Edu");
         company.setCity(city);
+        companyRepository.save(company);
 
-        List<City> cityList = Arrays.asList(city);
-        ResponseEntity responseEntity = new ResponseEntity(cityList,HttpStatus.OK);
-
-        given(cityController.findByCountryNameAndCompanyBusiness("Viet Nam","Edu")).willReturn(responseEntity);
-
-        mvc.perform(get("/city/find1").param("name","Viet Nam").param("business","Edu")
-                .contentType(MediaType.APPLICATION_JSON))
+        mvc.perform(get("/city/findByBusiness").param("business","Edu")
+                .contentType(MediaType.APPLICATION_JSON_UTF8))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$",hasSize(1)))
-                .andExpect(jsonPath("$[0].name",is("Da Nang")));
+                .andExpect(jsonPath("$[*].name").value(hasItem(city.getName())))
+                .andExpect(jsonPath("$[*].code").value(hasItem(city.getCode())));
+    }
 
+    @Test
+    public void findByBusinessCompanyNotFound() throws Exception {
+        mvc.perform(get("/city/findByBusiness").param("business","Edu")
+                .contentType(MediaType.APPLICATION_JSON_UTF8))
+                .andExpect(status().isNotFound());
+    }
+
+    @Test
+    public void findByCountryNameAndCompanyBusinessOk() throws Exception {
+        Company company = new Company();
+        company.setBusinessLicense("Edu");
+        company.setCity(city);
+        companyRepository.save(company);
+
+        mvc.perform(get("/city/find1").param("name","Viet Nam")
+                .param("business","Edu")
+                .contentType(MediaType.APPLICATION_JSON_UTF8))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$",hasSize(1)))
+                .andExpect(jsonPath("$[*].name").value(hasItem(city.getName())))
+                .andExpect(jsonPath("$[*].code").value(hasItem(city.getCode())));
+    }
+
+    @Test
+    public void findByCountryNameAndCompanyBusinessNotFound() throws Exception {
+        mvc.perform(get("/city/find1").param("name","Viet Nam")
+                .param("business","Edu")
+                .contentType(MediaType.APPLICATION_JSON_UTF8))
+                .andExpect(status().isNotFound());
     }
 
 }

@@ -63,30 +63,14 @@ public class CityController {
     @RequestMapping(path = "/delete", method = RequestMethod.DELETE)
     public ResponseEntity<?> deleteCity(@RequestParam Long id) {
         if (cityRepository.exists(id)) {
-            if (companyRepository.findByCityId(id) != null) {
-                return new ResponseEntity<>("City is used", HttpStatus.CONFLICT);
-            } else {
-                countryRepository.delete(id);
+            if (companyRepository.findByCityId(id).size() == 0) {
+                cityRepository.delete(id);
                 return new ResponseEntity<>(HttpStatus.OK);
+            } else {
+                return new ResponseEntity<>("City is used", HttpStatus.CONFLICT);
             }
         }
-        return new ResponseEntity<>("Id isn't exist", HttpStatus.NOT_FOUND);
-    }
-
-    @RequestMapping(path = "/edit", method = RequestMethod.PUT)
-    public ResponseEntity<?> editCity(@RequestBody CityDto cityDto) {
-        City city = cityRepository.findOne(cityDto.getId());
-        if (cityDto.getName() != null)
-            city.setName(cityDto.getName());
-        if (cityDto.getCode() != null)
-            city.setCode(cityDto.getCode());
-        if (cityDto.getCountryDto().getId() != null)
-            if (countryRepository.exists(cityDto.getCountryDto().getId()))
-                city.setCountry(countryRepository.findOne(cityDto.getCountryDto().getId()));
-            else
-                return new ResponseEntity<>("Country id is't exist", HttpStatus.CONFLICT);
-        city.setModifiedDate(new Date());
-        return new ResponseEntity<>(cityRepository.save(city), HttpStatus.OK);
+        return new ResponseEntity<>( HttpStatus.NOT_FOUND);
     }
 
     @RequestMapping(path = "/findByBusiness", method = RequestMethod.GET)
@@ -97,7 +81,7 @@ public class CityController {
         return new ResponseEntity<>(cityList, HttpStatus.OK);
     }
 
-    @RequestMapping(path = "find1", method = RequestMethod.GET)
+    @RequestMapping(path = "/find1", method = RequestMethod.GET)
     public ResponseEntity<?> findByCountryNameAndCompanyBusiness(@RequestParam String name, @RequestParam String business) {
         List<City> cityList = cityRepository.findByCountryNameAndBusinessCompany(name, business);
         if (cityList.size() != 0)

@@ -9,7 +9,7 @@ import java.util.List;
 
 public interface CompanyRepository extends JpaRepository<Company, Long> {
 
-    @Query("select c from Company c left join c.city where c.city.id=:city_id ")
+    @Query("select c from Company c where c.city.id=:city_id ")
     List<Company> findByCityId(@Param("city_id") Long city_id);
 
     List<Company> findByNameContainsOrBusinessLicenseContains(String name, String businessLicense);

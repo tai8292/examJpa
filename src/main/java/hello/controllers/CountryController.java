@@ -47,18 +47,18 @@ public class CountryController {
     @RequestMapping(path = "/delete", method = RequestMethod.DELETE)
     public ResponseEntity<?> deleteCountry(@RequestParam Long id) {
         if (countryRepository.exists(id)) {
-            if (cityRepository.findByCountryId(id) != null) {
+            if (cityRepository.findByCountryId(id).size() == 0) {
                 countryRepository.delete(id);
                 return new ResponseEntity<>(HttpStatus.OK);
             } else {
                 return new ResponseEntity<>("City is used", HttpStatus.CONFLICT);
             }
         }
-        return new ResponseEntity<>("id isn't exist", HttpStatus.NOT_FOUND);
+        return new ResponseEntity<>( HttpStatus.NOT_FOUND);
     }
 
-    @RequestMapping(path = "/{id}", method = RequestMethod.GET)
-    public ResponseEntity<?> findById(@PathVariable Long id) {
+    @RequestMapping(path = "", method = RequestMethod.GET)
+    public ResponseEntity<?> findById(@RequestParam Long id) {
         if (countryRepository.exists(id)) {
             return new ResponseEntity<>(countryRepository.findOne(id), HttpStatus.OK);
         }
@@ -69,7 +69,7 @@ public class CountryController {
     public ResponseEntity<?> findByBusinessCompany(@RequestParam String business) {
         List<Country> countryList = countryRepository.findByBusinessCompany(business);
         if (countryList.size() == 0)
-            return new ResponseEntity<>("khong tim thay",HttpStatus.NOT_FOUND);
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         return new ResponseEntity<>(countryList, HttpStatus.OK);
     }
 

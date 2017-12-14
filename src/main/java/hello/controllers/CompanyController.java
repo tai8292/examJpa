@@ -80,6 +80,4 @@ public class CompanyController {
             return new ResponseEntity<>(companyList, HttpStatus.OK);
         return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
-
-
 }

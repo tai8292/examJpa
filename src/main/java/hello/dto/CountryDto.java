@@ -1,7 +1,5 @@
 package hello.dto;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.validation.constraints.Size;
 import java.util.Date;
 
