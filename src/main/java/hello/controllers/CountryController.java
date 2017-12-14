@@ -58,7 +58,7 @@ public class CountryController {
     }
 
     @RequestMapping(path = "", method = RequestMethod.GET)
-    public ResponseEntity<?> findById(@RequestParam Long id) {
+    public  ResponseEntity<?> findById(@RequestParam Long id) {
         if (countryRepository.exists(id)) {
             return new ResponseEntity<>(countryRepository.findOne(id), HttpStatus.OK);
         }
@@ -71,6 +71,22 @@ public class CountryController {
         if (countryList.size() == 0)
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         return new ResponseEntity<>(countryList, HttpStatus.OK);
+    }
+
+    //count city of country
+    @RequestMapping(path = "/countcity",method = RequestMethod.GET)
+    public ResponseEntity<?> countCityOfCountry(@RequestParam Long id)
+    {
+        if(id == null)
+        {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+
+        if(countryRepository.exists(id)) {
+            return new ResponseEntity<>(countryRepository.countCity(id),HttpStatus.OK);
+        }
+        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+
     }
 
 }
