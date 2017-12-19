@@ -70,7 +70,7 @@ public class CityController {
                 return new ResponseEntity<>("City is used", HttpStatus.CONFLICT);
             }
         }
-        return new ResponseEntity<>( HttpStatus.NOT_FOUND);
+        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
     @RequestMapping(path = "/findByBusiness", method = RequestMethod.GET)
@@ -87,5 +87,28 @@ public class CityController {
         if (cityList.size() != 0)
             return new ResponseEntity<>(cityList, HttpStatus.OK);
         return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    }
+
+    @RequestMapping(path = "/update", method = RequestMethod.PUT)
+    public ResponseEntity<?> updateCity(@RequestBody CityDto cityDto) {
+        if (cityDto.getId() == null || cityDto.getName() == null || cityDto.getCode() == null
+                || cityDto.getCountryDto() == null || cityDto.getCountryDto().getId() == null)
+            return new ResponseEntity<>("value is null", HttpStatus.BAD_REQUEST);
+        if (cityRepository.exists(cityDto.getId())) {
+            if (cityDto.getName().equals("") || cityDto.getCode().equals("")) {
+                return new ResponseEntity<>("name or code is empty", HttpStatus.BAD_REQUEST);
+            }
+            if (countryRepository.exists(cityDto.getCountryDto().getId())) {
+                City city = cityRepository.findOne(cityDto.getId());
+                city.setName(cityDto.getName());
+                city.setCode(cityDto.getCode());
+                city.setCountry(countryRepository.findOne(cityDto.getCountryDto().getId()));
+                city.setModifiedDate(new Date());
+                return new ResponseEntity<>(cityRepository.save(city), HttpStatus.OK);
+            } else {
+                return new ResponseEntity<>("country id is't exist", HttpStatus.NOT_FOUND);
+            }
+        }
+        return new ResponseEntity<>("city id is't exist", HttpStatus.NOT_FOUND);
     }
 }
