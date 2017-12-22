@@ -35,8 +35,16 @@ public class CountryController {
 
     @RequestMapping(path = "/add", method = RequestMethod.POST)
     public ResponseEntity<?> addCountry(@RequestBody CountryDto countryDto) {
+        if (countryDto.getName() == null || countryDto.getCode() == null)
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        if (countryDto.getName().equals("") || countryDto.getCode().equals(""))
+            return new ResponseEntity<>("Name or code is empty", HttpStatus.BAD_REQUEST);
         Country country = new Country();
+        if (countryRepository.findByName(countryDto.getName()).size() != 0)
+            return new ResponseEntity<>("Name is used", HttpStatus.BAD_REQUEST);
         country.setName(countryDto.getName());
+        if (countryRepository.findByCode(countryDto.getCode()).size() != 0)
+            return new ResponseEntity<>("Code is used", HttpStatus.BAD_REQUEST);
         country.setCode(countryDto.getCode());
         country.setCreatedDate(new Date());
         country.setModifiedDate(new Date());

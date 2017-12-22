@@ -21,7 +21,6 @@ public class Country {
 
 
     public Country() {
-
     }
 
     public Country(String name, String code, Date createdDate, Date modifiedDate) {

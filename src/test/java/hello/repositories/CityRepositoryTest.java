@@ -32,6 +32,8 @@ public class CityRepositoryTest {
         country = new Country();
         country.setName("Viet Nam");
         city = new City();
+        city.setName("Da Nang");
+        city.setCode("DN");
         city.setCountry(country);
         Company company = new Company();
         company.setBusinessLicense("Edu");
@@ -45,23 +47,36 @@ public class CityRepositoryTest {
     @Test
     public void findByCountryId() throws Exception {
         List<City> cities = cityRepository.findByCountryId(country.getId());
-        assertEquals(1,cities.size());
-        assertEquals(city,cities.get(0));
+        assertEquals(1, cities.size());
+        assertEquals(city, cities.get(0));
 
     }
 
     @Test
     public void findByCompanyBusiness() throws Exception {
         List<City> cities = cityRepository.findByCompanyBusiness("Edu");
-        assertEquals(1,cities.size());
-        assertEquals(city,cities.get(0));
+        assertEquals(1, cities.size());
+        assertEquals(city, cities.get(0));
     }
 
     @Test
     public void findByCountryNameAndBusinessCompany() throws Exception {
-        List<City> cities = cityRepository.findByCountryNameAndBusinessCompany("Viet Nam","Edu");
-        assertEquals(1,cities.size());
-        assertEquals(city,cities.get(0));
+        List<City> cities = cityRepository.findByCountryNameAndBusinessCompany("Viet Nam", "Edu");
+        assertEquals(1, cities.size());
+        assertEquals(city, cities.get(0));
     }
 
+    @Test
+    public void findByName() throws Exception {
+        List<City> cities = cityRepository.findByName("Da Nang");
+        assertEquals(1, cities.size());
+        assertEquals(city, cities.get(0));
+    }
+
+    @Test
+    public void findByCode() throws Exception {
+        List<City> cities = cityRepository.findByName("DN");
+        assertEquals(1, cities.size());
+        assertEquals(city, cities.get(0));
+    }
 }

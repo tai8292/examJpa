@@ -7,7 +7,7 @@ public class CountryDto {
 
     private Long id;
     private String name;
-    @Size(min=5,max=10)
+    @Size(min = 5, max = 10)
     private String code;
     private Date createdDate;
     private Date modifiedDate;

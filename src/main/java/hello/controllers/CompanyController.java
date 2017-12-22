@@ -37,23 +37,25 @@ public class CompanyController {
 
     @RequestMapping(path = "/add", method = RequestMethod.POST)
     public ResponseEntity<?> addCompany(@RequestBody CompanyDto companyDto) {
-        try {
-            if (cityRepository.exists(companyDto.getCityDto().getId())) {
-                City city = cityRepository.findOne(companyDto.getCityDto().getId());
-
-                Company company = new Company();
-                company.setName(companyDto.getName());
-                company.setBusinessLicense(companyDto.getBusinessLicense());
-                company.setCity(city);
-                company.setCreatedDate(new Date());
-                company.setModifiedDate(new Date());
-                companyRepository.save(company);
-                return new ResponseEntity<>(company, HttpStatus.CREATED);
-            }
-            return new ResponseEntity<>("City id is not exist", HttpStatus.NOT_FOUND);
-        } catch (Exception e) {
+        if (companyDto.getName() == null || companyDto.getBusinessLicense() == null || companyDto.getCityDto() == null
+                || companyDto.getCityDto().getId() == null)
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        if (companyDto.getName().equals("") || companyDto.getBusinessLicense().equals(""))
+            return new ResponseEntity<>("Name or business license is null", HttpStatus.BAD_REQUEST);
+        if (cityRepository.exists(companyDto.getCityDto().getId())) {
+            City city = cityRepository.findOne(companyDto.getCityDto().getId());
+            Company company = new Company();
+            if (companyRepository.findByName(companyDto.getName()).size() != 0)
+                return new ResponseEntity<>("Name is used", HttpStatus.CONFLICT);
+            company.setName(companyDto.getName());
+            company.setBusinessLicense(companyDto.getBusinessLicense());
+            company.setCity(city);
+            company.setCreatedDate(new Date());
+            company.setModifiedDate(new Date());
+            companyRepository.save(company);
+            return new ResponseEntity<>(company, HttpStatus.CREATED);
         }
+        return new ResponseEntity<>("City id is not exist", HttpStatus.NOT_FOUND);
     }
 
     @RequestMapping(path = "/delete", method = RequestMethod.DELETE)

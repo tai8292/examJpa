@@ -40,23 +40,28 @@ public class CityController {
 
     @RequestMapping(path = "/add", method = RequestMethod.POST)
     public ResponseEntity<?> addCity(@RequestBody CityDto cityDto) {
-        try {
-            if (countryRepository.exists(cityDto.getCountryDto().getId())) {
-                Country country = countryRepository.findOne(cityDto.getCountryDto().getId());
+        if (cityDto.getCode() == null || cityDto.getName() == null || cityDto.getCountryDto() == null
+                || cityDto.getCountryDto().getId() == null)
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        if (cityDto.getName().equals("") || cityDto.getCode().equals(""))
+            return new ResponseEntity<>("Name or code is null", HttpStatus.BAD_REQUEST);
+        if (countryRepository.exists(cityDto.getCountryDto().getId())) {
+            Country country = countryRepository.findOne(cityDto.getCountryDto().getId());
 
-                City city = new City();
-                city.setName(cityDto.getName());
-                city.setCode(cityDto.getCode());
-                city.setCountry(country);
-                city.setCreatedDate(new Date());
-                city.setModifiedDate(new Date());
-                cityRepository.save(city);
-                return new ResponseEntity(city, HttpStatus.CREATED);
-            } else {
-                return new ResponseEntity<>("Country id isn't exist", HttpStatus.NOT_FOUND);
-            }
-        } catch (Exception e) {
-            return new ResponseEntity(HttpStatus.BAD_REQUEST);
+            City city = new City();
+            if (cityRepository.findByName(cityDto.getName()).size() != 0)
+                return new ResponseEntity<>("Name is used", HttpStatus.CONFLICT);
+            city.setName(cityDto.getName());
+            if (cityRepository.findByCode(cityDto.getCode()).size() != 0)
+                return new ResponseEntity<>("Code is used", HttpStatus.CONFLICT);
+            city.setCode(cityDto.getCode());
+            city.setCountry(country);
+            city.setCreatedDate(new Date());
+            city.setModifiedDate(new Date());
+            cityRepository.save(city);
+            return new ResponseEntity(city, HttpStatus.CREATED);
+        } else {
+            return new ResponseEntity<>("Country id isn't exist", HttpStatus.NOT_FOUND);
         }
     }
 

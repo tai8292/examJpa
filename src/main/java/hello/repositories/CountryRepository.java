@@ -15,4 +15,8 @@ public interface CountryRepository extends JpaRepository<Country, Long> {
 
     @Query("select count(c.id) from City ct left join ct.country c where c.id=:id group by c.id")
     int countCity(@Param("id") Long id);
+
+    List<Country> findByName(String name);
+
+    List<Country> findByCode(String code);
 }
