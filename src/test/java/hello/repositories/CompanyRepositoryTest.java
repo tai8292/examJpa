@@ -51,22 +51,22 @@ public class CompanyRepositoryTest {
     @Test
     public void findByCityId() throws Exception {
         List<Company> companies = companyRepository.findByCityId(city.getId());
-        assertEquals(1,companies.size());
-        assertEquals(companyList.get(0),companies.get(0));
+        assertEquals(1, companies.size());
+        assertEquals(companyList.get(0), companies.get(0));
     }
 
     @Test
     public void findByNameContainsOrBusinessLicenseContains() throws Exception {
-        List<Company> companies = companyRepository.findByNameContainsOrBusinessLicenseContains("CGV","movie");
-        assertEquals(1,companies.size());
-        assertEquals(companyList.get(0),companies.get(0));
+        List<Company> companies = companyRepository.findByNameContainsOrBusinessLicenseContains("CGV", "movie");
+        assertEquals(1, companies.size());
+        assertEquals(companyList.get(0), companies.get(0));
     }
 
     @Test
     public void findByCountryName() throws Exception {
         List<Company> companies = companyRepository.findByCountryName("VN");
-        assertEquals(1,companies.size());
-        assertEquals(companyList.get(0),companies.get(0));
+        assertEquals(1, companies.size());
+        assertEquals(companyList.get(0), companies.get(0));
     }
 
 }

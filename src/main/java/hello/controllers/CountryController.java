@@ -1,6 +1,7 @@
 package hello.controllers;
 
 
+import hello.dto.CountCity;
 import hello.dto.CountryDto;
 import hello.entities.Country;
 import hello.repositories.CityRepository;
@@ -54,11 +55,11 @@ public class CountryController {
                 return new ResponseEntity<>("City is used", HttpStatus.CONFLICT);
             }
         }
-        return new ResponseEntity<>( HttpStatus.NOT_FOUND);
+        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
     @RequestMapping(path = "", method = RequestMethod.GET)
-    public  ResponseEntity<?> findById(@RequestParam Long id) {
+    public ResponseEntity<?> findById(@RequestParam Long id) {
         if (countryRepository.exists(id)) {
             return new ResponseEntity<>(countryRepository.findOne(id), HttpStatus.OK);
         }
@@ -74,19 +75,10 @@ public class CountryController {
     }
 
     //count city of country
-    @RequestMapping(path = "/countcity",method = RequestMethod.GET)
-    public ResponseEntity<?> countCityOfCountry(@RequestParam Long id)
-    {
-        if(id == null)
-        {
-            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-        }
-
-        if(countryRepository.exists(id)) {
-            return new ResponseEntity<>(countryRepository.countCity(id),HttpStatus.OK);
-        }
-        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-
+    @RequestMapping(path = "/countcity", method = RequestMethod.GET)
+    public ResponseEntity<?> countCityOfCountry() {
+        List<CountCity> result = countryRepository.countCity();
+        return new ResponseEntity<>(result, HttpStatus.OK);
     }
 
 }

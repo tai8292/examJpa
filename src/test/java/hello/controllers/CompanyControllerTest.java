@@ -69,9 +69,9 @@ public class CompanyControllerTest {
     @Test
     public void getListCompany() throws Exception {
         mvc.perform(get("/company/all").contentType(MediaType.APPLICATION_JSON_UTF8)
-                .param("pagenum",""+1))
+                .param("pagenum", "" + 1))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.totalPages",is(1)))
+                .andExpect(jsonPath("$.totalPages", is(1)))
                 .andExpect(jsonPath("$.content[*].name").value(hasItem(company.getName())))
                 .andExpect(jsonPath("$.content[*].businessLicense").value(hasItem(company.getBusinessLicense())));
     }
@@ -91,7 +91,7 @@ public class CompanyControllerTest {
     @Test
     public void addCompanyNotFound() throws Exception {
         CityDto cityDto = new CityDto();
-        cityDto.setId(city.getId()+1);
+        cityDto.setId(city.getId() + 1);
         CompanyDto companyDto = new CompanyDto();
         companyDto.setCityDto(cityDto);
 
@@ -102,47 +102,47 @@ public class CompanyControllerTest {
 
     @Test
     public void deleteCompanyOk() throws Exception {
-        mvc.perform(delete("/company/delete").param("id",company.getId()+"")
+        mvc.perform(delete("/company/delete").param("id", company.getId() + "")
                 .contentType(MediaType.APPLICATION_JSON_UTF8))
                 .andExpect(status().isOk());
     }
 
     @Test
     public void deleteCompanyNotFound() throws Exception {
-        mvc.perform(delete("/company/delete").param("id",(company.getId()+1)+"")
+        mvc.perform(delete("/company/delete").param("id", (company.getId() + 1) + "")
                 .contentType(MediaType.APPLICATION_JSON_UTF8))
                 .andExpect(status().isNotFound());
     }
 
     @Test
     public void findCompanyOk() throws Exception {
-        mvc.perform(get("/company/find").param("value","Edu")
+        mvc.perform(get("/company/find").param("value", "Edu")
                 .contentType(MediaType.APPLICATION_JSON_UTF8))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$",hasSize(1)))
-                .andExpect(jsonPath("$[0].name",is("DTU")));
+                .andExpect(jsonPath("$", hasSize(1)))
+                .andExpect(jsonPath("$[0].name", is("DTU")));
     }
 
     @Test
     public void findCompanyNotFound() throws Exception {
-        mvc.perform(get("/company/find").param("value","Education")
+        mvc.perform(get("/company/find").param("value", "Education")
                 .contentType(MediaType.APPLICATION_JSON_UTF8))
                 .andExpect(status().isNotFound());
     }
 
     @Test
     public void findByCountryNameOk() throws Exception {
-        mvc.perform(get("/company/find/country").param("countryName","Viet Nam")
+        mvc.perform(get("/company/find/country").param("countryName", "Viet Nam")
                 .contentType(MediaType.APPLICATION_JSON_UTF8))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$",hasSize(1)))
+                .andExpect(jsonPath("$", hasSize(1)))
                 .andExpect(jsonPath("$[*].name").value(hasItem(company.getName())))
                 .andExpect(jsonPath("$[*].businessLicense").value(hasItem(company.getBusinessLicense())));
     }
 
     @Test
     public void findByCountryNameNotFound() throws Exception {
-        mvc.perform(get("/company/find/country").param("countryName","Viet Nam a")
+        mvc.perform(get("/company/find/country").param("countryName", "Viet Nam a")
                 .contentType(MediaType.APPLICATION_JSON_UTF8))
                 .andExpect(status().isNotFound());
     }

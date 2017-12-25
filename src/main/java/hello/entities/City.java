@@ -6,7 +6,7 @@ import javax.persistence.*;
 import java.util.Date;
 
 @Entity
-
+@Table
 public class City {
 
     @Id
@@ -16,18 +16,19 @@ public class City {
     private String code;
     @ManyToOne
     private Country country;
-    @JsonFormat(pattern="yyyy-MM-dd")
+    @JsonFormat(pattern = "yyyy-MM-dd")
     private Date createdDate;
-    @JsonFormat(pattern="yyyy-MM-dd")
+    @JsonFormat(pattern = "yyyy-MM-dd")
     private Date modifiedDate;
 
     public City() {
     }
-    public City(Long id,String name)
-    {
+
+    public City(Long id, String name) {
         this.id = id;
         this.name = name;
     }
+
     public City(String name, String code, Country country, Date createdDate, Date modifiedDate) {
         this.name = name;
         this.code = code;

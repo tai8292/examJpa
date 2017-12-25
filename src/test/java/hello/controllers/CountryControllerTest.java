@@ -57,7 +57,7 @@ public class CountryControllerTest {
 
     @Test
     public void getListCountry() throws Exception {
-        mvc.perform(get("/country/all").param("pagenum",1+"")
+        mvc.perform(get("/country/all").param("pagenum", 1 + "")
                 .contentType(MediaType.APPLICATION_JSON_UTF8))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.content.[*].name").value(hasItem(country.getName())))
@@ -76,38 +76,39 @@ public class CountryControllerTest {
 
     @Test
     public void deleteCountryOk() throws Exception {
-        mvc.perform(delete("/country/delete").param("id",country.getId()+"")
+        mvc.perform(delete("/country/delete").param("id", country.getId() + "")
                 .contentType(MediaType.APPLICATION_JSON_UTF8))
                 .andExpect(status().isOk());
     }
 
     @Test
     public void deleteCountryNotFound() throws Exception {
-        mvc.perform(delete("/country/delete").param("id",(country.getId()+1)+"")
+        mvc.perform(delete("/country/delete").param("id", (country.getId() + 1) + "")
                 .contentType(MediaType.APPLICATION_JSON_UTF8))
                 .andExpect(status().isNotFound());
     }
+
     @Test
     public void deleteCountryConflict() throws Exception {
         city = new City();
         city.setCountry(country);
         cityRepository.save(city);
-        mvc.perform(delete("/country/delete").param("id",country.getId()+"")
+        mvc.perform(delete("/country/delete").param("id", country.getId() + "")
                 .contentType(MediaType.APPLICATION_JSON_UTF8))
                 .andExpect(status().isConflict());
     }
 
     @Test
     public void findByIdOk() throws Exception {
-        mvc.perform(get("/country").param("id",country.getId()+"")
+        mvc.perform(get("/country").param("id", country.getId() + "")
                 .contentType(MediaType.APPLICATION_JSON_UTF8))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.name",is(country.getName())));
+                .andExpect(jsonPath("$.name", is(country.getName())));
     }
 
     @Test
     public void findByIdNotFound() throws Exception {
-        mvc.perform(get("/country").param("id",(country.getId()+1)+"")
+        mvc.perform(get("/country").param("id", (country.getId() + 1) + "")
                 .contentType(MediaType.APPLICATION_JSON_UTF8))
                 .andExpect(status().isNotFound());
     }
@@ -122,16 +123,16 @@ public class CountryControllerTest {
         cityRepository.save(city);
         companyRepository.save(company);
 
-        mvc.perform(get("/country/find/business").param("business","Edu")
+        mvc.perform(get("/country/find/business").param("business", "Edu")
                 .contentType(MediaType.APPLICATION_JSON_UTF8))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$",hasSize(1)))
-                .andExpect(jsonPath("$[0].name",is(country.getName())));
+                .andExpect(jsonPath("$", hasSize(1)))
+                .andExpect(jsonPath("$[0].name", is(country.getName())));
     }
 
     @Test
     public void findByBusinessCompanyNotFound() throws Exception {
-        mvc.perform(get("/country/find/business").param("business","Edu")
+        mvc.perform(get("/country/find/business").param("business", "Edu")
                 .contentType(MediaType.APPLICATION_JSON_UTF8))
                 .andExpect(status().isNotFound());
     }

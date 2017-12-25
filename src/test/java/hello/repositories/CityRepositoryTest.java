@@ -45,23 +45,23 @@ public class CityRepositoryTest {
     @Test
     public void findByCountryId() throws Exception {
         List<City> cities = cityRepository.findByCountryId(country.getId());
-        assertEquals(1,cities.size());
-        assertEquals(city,cities.get(0));
+        assertEquals(1, cities.size());
+        assertEquals(city, cities.get(0));
 
     }
 
     @Test
     public void findByCompanyBusiness() throws Exception {
         List<City> cities = cityRepository.findByCompanyBusiness("Edu");
-        assertEquals(1,cities.size());
-        assertEquals(city,cities.get(0));
+        assertEquals(1, cities.size());
+        assertEquals(city, cities.get(0));
     }
 
     @Test
     public void findByCountryNameAndBusinessCompany() throws Exception {
-        List<City> cities = cityRepository.findByCountryNameAndBusinessCompany("Viet Nam","Edu");
-        assertEquals(1,cities.size());
-        assertEquals(city,cities.get(0));
+        List<City> cities = cityRepository.findByCountryNameAndBusinessCompany("Viet Nam", "Edu");
+        assertEquals(1, cities.size());
+        assertEquals(city, cities.get(0));
     }
 
 }
