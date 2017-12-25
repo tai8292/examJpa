@@ -1,28 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="daa59c3e-4db8-45fa-9dc1-4c737bc10822" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/hello/dto/CountCity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/hello/controllers/CountryController.class" afterPath="$PROJECT_DIR$/target/classes/hello/controllers/CountryController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/hello/entities/City.class" afterPath="$PROJECT_DIR$/target/classes/hello/entities/City.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/hello/repositories/CountryRepository.class" afterPath="$PROJECT_DIR$/target/classes/hello/repositories/CountryRepository.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/test-classes/hello/controllers/CountryControllerTest.class" afterPath="$PROJECT_DIR$/target/test-classes/hello/controllers/CountryControllerTest.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/test-classes/hello/repositories/CountryRepositoryTest.class" afterPath="$PROJECT_DIR$/target/test-classes/hello/repositories/CountryRepositoryTest.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gs-mysql-data.iml" afterPath="$PROJECT_DIR$/gs-mysql-data.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/hello/controllers/CityController.java" afterPath="$PROJECT_DIR$/src/main/java/hello/controllers/CityController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/hello/controllers/CountryController.java" afterPath="$PROJECT_DIR$/src/main/java/hello/controllers/CountryController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/hello/dto/CountryDto.java" afterPath="$PROJECT_DIR$/src/main/java/hello/dto/CountryDto.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/hello/entities/City.java" afterPath="$PROJECT_DIR$/src/main/java/hello/entities/City.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/hello/repositories/CountryRepository.java" afterPath="$PROJECT_DIR$/src/main/java/hello/repositories/CountryRepository.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/hello/controllers/CityControllerTest.java" afterPath="$PROJECT_DIR$/src/test/java/hello/controllers/CityControllerTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/hello/controllers/CompanyControllerTest.java" afterPath="$PROJECT_DIR$/src/test/java/hello/controllers/CompanyControllerTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/hello/controllers/CountryControllerTest.java" afterPath="$PROJECT_DIR$/src/test/java/hello/controllers/CountryControllerTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/hello/repositories/CityRepositoryTest.java" afterPath="$PROJECT_DIR$/src/test/java/hello/repositories/CityRepositoryTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/hello/repositories/CompanyRepositoryTest.java" afterPath="$PROJECT_DIR$/src/test/java/hello/repositories/CompanyRepositoryTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/hello/repositories/CountryRepositoryTest.java" afterPath="$PROJECT_DIR$/src/test/java/hello/repositories/CountryRepositoryTest.java" />
-    </list>
+    <list default="true" id="daa59c3e-4db8-45fa-9dc1-4c737bc10822" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -645,7 +624,7 @@
       <workItem from="1512526976908" duration="598000" />
       <workItem from="1512544408415" duration="13775000" />
       <workItem from="1513044170065" duration="37207000" />
-      <workItem from="1513649718799" duration="8666000" />
+      <workItem from="1513649718799" duration="9320000" />
     </task>
     <servers />
   </component>
@@ -682,11 +661,10 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="132798000" />
+    <option name="totallyTimeSpent" value="133452000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="30" width="1366" height="738" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -697,9 +675,9 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.50158733" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.50158733" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32857144" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32857144" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2715959" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -915,8 +893,8 @@
         <state relative-caret-position="225">
           <caret line="17" column="30" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
           <folding>
-            <element signature="e#326#327#0" expanded="true" />
-            <element signature="e#354#355#0" expanded="true" />
+            <element signature="e#326#327#0" expanded="false" />
+            <element signature="e#354#355#0" expanded="false" />
           </folding>
         </state>
       </provider>
