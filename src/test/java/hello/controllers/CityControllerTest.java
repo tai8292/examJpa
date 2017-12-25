@@ -75,8 +75,6 @@ public class CityControllerTest {
     @Test
     public void addCityCreate() throws Exception {
         CityDto cityDto = new CityDto();
-        cityDto.setName("Da Nang 1");
-        cityDto.setCode("DN1");
         CountryDto countryDto = new CountryDto();
         countryDto.setId(country.getId());
         cityDto.setCountryDto(countryDto);
@@ -84,10 +82,11 @@ public class CityControllerTest {
         mvc.perform(post("/city/add").contentType(MediaType.APPLICATION_JSON_UTF8)
                 .content(TestUtil.convertObjectToJsonBytes(cityDto)))
                 .andExpect(status().isCreated());
+
     }
 
     @Test
-    public void addCityNotFound() throws Exception {
+    public void addCityCreateNotFound() throws Exception {
         CityDto cityDto = new CityDto();
         CountryDto countryDto = new CountryDto();
         countryDto.setId(country.getId() + 1);
@@ -96,58 +95,9 @@ public class CityControllerTest {
         mvc.perform(post("/city/add").contentType(MediaType.APPLICATION_JSON_UTF8)
                 .content(TestUtil.convertObjectToJsonBytes(cityDto)))
                 .andExpect(status().isNotFound());
+
     }
 
-    @Test
-    public void addCityNull() throws Exception {
-        CityDto cityDto = new CityDto();
-
-        mvc.perform(post("/city/add").contentType(MediaType.APPLICATION_JSON_UTF8)
-                .content(TestUtil.convertObjectToJsonBytes(cityDto)))
-                .andExpect(status().isBadRequest());
-    }
-
-    @Test
-    public void addCityEmpty() throws Exception {
-        CityDto cityDto = new CityDto();
-        cityDto.setName("");
-        cityDto.setCode("");
-        CountryDto countryDto = new CountryDto();
-        countryDto.setId(country.getId());
-        cityDto.setCountryDto(countryDto);
-
-        mvc.perform(post("/city/add").contentType(MediaType.APPLICATION_JSON_UTF8)
-                .content(TestUtil.convertObjectToJsonBytes(cityDto)))
-                .andExpect(status().isBadRequest());
-    }
-
-    @Test
-    public void addCityNameConflict() throws Exception {
-        CityDto cityDto = new CityDto();
-        cityDto.setName("Da Nang");
-        cityDto.setCode("DN1");
-        CountryDto countryDto = new CountryDto();
-        countryDto.setId(country.getId());
-        cityDto.setCountryDto(countryDto);
-
-        mvc.perform(post("/city/add").contentType(MediaType.APPLICATION_JSON_UTF8)
-                .content(TestUtil.convertObjectToJsonBytes(cityDto)))
-                .andExpect(status().isConflict());
-    }
-
-    @Test
-    public void addCityCodeConflict() throws Exception {
-        CityDto cityDto = new CityDto();
-        cityDto.setName("Da Nang 1");
-        cityDto.setCode("DN");
-        CountryDto countryDto = new CountryDto();
-        countryDto.setId(country.getId());
-        cityDto.setCountryDto(countryDto);
-
-        mvc.perform(post("/city/add").contentType(MediaType.APPLICATION_JSON_UTF8)
-                .content(TestUtil.convertObjectToJsonBytes(cityDto)))
-                .andExpect(status().isConflict());
-    }
 
     @Test
     public void deleteCityOk() throws Exception {

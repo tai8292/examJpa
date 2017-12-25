@@ -67,54 +67,12 @@ public class CountryControllerTest {
     @Test
     public void addCountry() throws Exception {
         CountryDto countryDto = new CountryDto();
-        countryDto.setName("Viet Nam 1");
-        countryDto.setCode("VN1");
+        countryDto.setName("Viet Nam");
         mvc.perform(post("/country/add").contentType(MediaType.APPLICATION_JSON)
                 .content(TestUtil.convertObjectToJsonBytes(countryDto)))
                 .andExpect(status().isCreated());
     }
 
-    @Test
-    public void addCountryNameConflict() throws Exception {
-        CountryDto countryDto = new CountryDto();
-        countryDto.setName("Viet Nam");
-        countryDto.setCode("VN1");
-
-        mvc.perform(post("/country/add").contentType(MediaType.APPLICATION_JSON)
-                .content(TestUtil.convertObjectToJsonBytes(countryDto)))
-                .andExpect(status().isConflict());
-    }
-
-    @Test
-    public void addCountryCodeConflict() throws Exception {
-        CountryDto countryDto = new CountryDto();
-        countryDto.setName("Viet Nam 1");
-        countryDto.setCode("VN");
-
-        mvc.perform(post("/country/add").contentType(MediaType.APPLICATION_JSON)
-                .content(TestUtil.convertObjectToJsonBytes(countryDto)))
-                .andExpect(status().isConflict());
-    }
-
-    @Test
-    public void addCountryNull() throws Exception {
-        CountryDto countryDto = new CountryDto();
-
-        mvc.perform(post("/country/add").contentType(MediaType.APPLICATION_JSON)
-                .content(TestUtil.convertObjectToJsonBytes(countryDto)))
-                .andExpect(status().isBadRequest());
-    }
-
-    @Test
-    public void addCountryEmpty() throws Exception {
-        CountryDto countryDto = new CountryDto();
-        countryDto.setName("");
-        countryDto.setCode("");
-
-        mvc.perform(post("/country/add").contentType(MediaType.APPLICATION_JSON)
-                .content(TestUtil.convertObjectToJsonBytes(countryDto)))
-                .andExpect(status().isBadRequest());
-    }
 
     @Test
     public void deleteCountryOk() throws Exception {

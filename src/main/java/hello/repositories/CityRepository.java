@@ -19,8 +19,4 @@ public interface CityRepository extends JpaRepository<City, Long> {
             " where cp.businessLicense like %:business% and c.name like %:countryName%")
     List<City> findByCountryNameAndBusinessCompany(@Param("countryName") String countryName,
                                                    @Param("business") String business);
-
-    List<City> findByName(String name);
-
-    List<City> findByCode(String code);
 }

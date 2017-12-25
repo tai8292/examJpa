@@ -1,11 +1,11 @@
 package hello.repositories;
 
-        import hello.entities.Company;
-        import org.springframework.data.jpa.repository.JpaRepository;
-        import org.springframework.data.jpa.repository.Query;
-        import org.springframework.data.repository.query.Param;
+import hello.entities.Company;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 
-        import java.util.List;
+import java.util.List;
 
 public interface CompanyRepository extends JpaRepository<Company, Long> {
 
@@ -16,6 +16,4 @@ public interface CompanyRepository extends JpaRepository<Company, Long> {
 
     @Query("select c from Company c join c.city ct join ct.country ctr where ctr.name like %:countryName%")
     List<Company> findByCountryName(@Param("countryName") String countryName);
-
-    List<Company> findByName(String name);
 }
