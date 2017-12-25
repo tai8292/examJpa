@@ -32,6 +32,8 @@ public class CityRepositoryTest {
         country = new Country();
         country.setName("Viet Nam");
         city = new City();
+        city.setName("Da Nang");
+        city.setCode("DN");
         city.setCountry(country);
         Company company = new Company();
         company.setBusinessLicense("Edu");
@@ -64,4 +66,17 @@ public class CityRepositoryTest {
         assertEquals(city, cities.get(0));
     }
 
+    @Test
+    public void findByName() throws Exception {
+        List<City> cities = cityRepository.findByName("Da Nang");
+        assertEquals(1, cities.size());
+        assertEquals(city, cities.get(0));
+    }
+
+    @Test
+    public void findByCode() throws Exception {
+        List<City> cities = cityRepository.findByName("DN");
+        assertEquals(1, cities.size());
+        assertEquals(city, cities.get(0));
+    }
 }

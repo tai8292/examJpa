@@ -36,8 +36,16 @@ public class CountryController {
 
     @RequestMapping(path = "/add", method = RequestMethod.POST)
     public ResponseEntity<?> addCountry(@RequestBody CountryDto countryDto) {
+        if (countryDto.getName() == null || countryDto.getCode() == null)
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        if (countryDto.getName().equals("") || countryDto.getCode().equals(""))
+            return new ResponseEntity<>("Name or code is empty", HttpStatus.BAD_REQUEST);
         Country country = new Country();
+        if (countryRepository.findByName(countryDto.getName()).size() != 0)
+            return new ResponseEntity<>("Name is used", HttpStatus.BAD_REQUEST);
         country.setName(countryDto.getName());
+        if (countryRepository.findByCode(countryDto.getCode()).size() != 0)
+            return new ResponseEntity<>("Code is used", HttpStatus.BAD_REQUEST);
         country.setCode(countryDto.getCode());
         country.setCreatedDate(new Date());
         country.setModifiedDate(new Date());
@@ -76,9 +84,32 @@ public class CountryController {
 
     //count city of country
     @RequestMapping(path = "/countcity", method = RequestMethod.GET)
-    public ResponseEntity<?> countCityOfCountry() {
-        List<CountCity> result = countryRepository.countCity();
-        return new ResponseEntity<>(result, HttpStatus.OK);
+    public ResponseEntity<?> countCityOfCountry(@RequestParam Long id) {
+        if (id == null) {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+        if (countryRepository.exists(id)) {
+            return new ResponseEntity<>(countryRepository.countCity(id), HttpStatus.OK);
+        }
+        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    }
+
+    @RequestMapping(path = "update", method = RequestMethod.PUT)
+    public ResponseEntity<?> updateCountry(@RequestBody CountryDto countryDto) {
+        if (countryDto.getId() == null || countryDto.getName() == null || countryDto.getCode() == null) {
+            return new ResponseEntity<>("value is null", HttpStatus.BAD_REQUEST);
+        }
+        if (countryRepository.exists(countryDto.getId())) {
+            if (countryDto.getName().equals("") || countryDto.getCode().equals(""))
+                return new ResponseEntity<>("Name and code is't empty", HttpStatus.BAD_REQUEST);
+            Country country = countryRepository.findOne(countryDto.getId());
+            country.setName(countryDto.getName());
+            country.setCode(countryDto.getCode());
+            country.setModifiedDate(new Date());
+            countryRepository.save(country);
+            return new ResponseEntity<>(HttpStatus.OK);
+        }
+        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
 }
