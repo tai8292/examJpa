@@ -43,4 +43,29 @@ public class CountryRepositoryTest {
         assertEquals(country, found.get(0));
     }
 
+    @Test
+    public void findByName() throws Exception {
+        Country country = new Country();
+        country.setName("Viet Nam");
+        country.setCode("VN");
+        entityManager.persist(country);
+        entityManager.flush();
+
+        List<Country> result = countryRepository.findByName("Viet Nam");
+        assertEquals(1, result.size());
+        assertEquals(country, result.get(0));
+    }
+
+    @Test
+    public void findByCode() throws Exception {
+        Country country = new Country();
+        country.setName("Viet Nam");
+        country.setCode("VN");
+        entityManager.persist(country);
+        entityManager.flush();
+
+        List<Country> result = countryRepository.findByCode("VN");
+        assertEquals(1, result.size());
+        assertEquals(country, result.get(0));
+    }
 }

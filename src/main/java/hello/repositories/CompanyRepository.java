@@ -16,4 +16,6 @@ public interface CompanyRepository extends JpaRepository<Company, Long> {
 
     @Query("select c from Company c join c.city ct join ct.country ctr where ctr.name like %:countryName%")
     List<Company> findByCountryName(@Param("countryName") String countryName);
+
+    List<Company> findByName(String name);
 }

@@ -82,10 +82,49 @@ public class CompanyControllerTest {
         cityDto.setId(city.getId());
         CompanyDto companyDto = new CompanyDto();
         companyDto.setCityDto(cityDto);
+        companyDto.setName("DTU 1");
+        companyDto.setBusinessLicense("Edu");
 
         mvc.perform(post("/company/add").contentType(MediaType.APPLICATION_JSON_UTF8)
                 .content(TestUtil.convertObjectToJsonBytes(companyDto)))
                 .andExpect(status().isCreated());
+    }
+
+    @Test
+    public void addCompanyNull() throws Exception {
+        CompanyDto companyDto = new CompanyDto();
+
+        mvc.perform(post("/company/add").contentType(MediaType.APPLICATION_JSON_UTF8)
+                .content(TestUtil.convertObjectToJsonBytes(companyDto)))
+                .andExpect(status().isBadRequest());
+    }
+
+    @Test
+    public void addCompanyEmpty() throws Exception {
+        CityDto cityDto = new CityDto();
+        cityDto.setId(city.getId());
+        CompanyDto companyDto = new CompanyDto();
+        companyDto.setCityDto(cityDto);
+        companyDto.setName("");
+        companyDto.setBusinessLicense("");
+
+        mvc.perform(post("/company/add").contentType(MediaType.APPLICATION_JSON_UTF8)
+                .content(TestUtil.convertObjectToJsonBytes(companyDto)))
+                .andExpect(status().isBadRequest());
+    }
+
+    @Test
+    public void addCompanyNameConflict() throws Exception {
+        CityDto cityDto = new CityDto();
+        cityDto.setId(city.getId());
+        CompanyDto companyDto = new CompanyDto();
+        companyDto.setCityDto(cityDto);
+        companyDto.setName("DTU");
+        companyDto.setBusinessLicense("edu");
+
+        mvc.perform(post("/company/add").contentType(MediaType.APPLICATION_JSON_UTF8)
+                .content(TestUtil.convertObjectToJsonBytes(companyDto)))
+                .andExpect(status().isConflict());
     }
 
     @Test
@@ -94,6 +133,8 @@ public class CompanyControllerTest {
         cityDto.setId(city.getId() + 1);
         CompanyDto companyDto = new CompanyDto();
         companyDto.setCityDto(cityDto);
+        companyDto.setName("abc");
+        companyDto.setBusinessLicense("abc");
 
         mvc.perform(post("/company/add").contentType(MediaType.APPLICATION_JSON_UTF8)
                 .content(TestUtil.convertObjectToJsonBytes(companyDto)))
@@ -146,5 +187,4 @@ public class CompanyControllerTest {
                 .contentType(MediaType.APPLICATION_JSON_UTF8))
                 .andExpect(status().isNotFound());
     }
-
 }

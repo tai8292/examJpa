@@ -2,14 +2,14 @@ package hello.dto;
 
 public class CountCity {
     private Long id;
-    private Long countCity;
+    private Long numberCity;
 
     public CountCity() {
     }
 
-    public CountCity(Long id,Long countCity) {
+    public CountCity(Long id,Long numberCity) {
         this.id = id;
-        this.countCity = countCity;
+        this.numberCity = numberCity;
     }
 
     public Long getId() {
@@ -20,11 +20,11 @@ public class CountCity {
         this.id = id;
     }
 
-    public Long getCountCity() {
-        return countCity;
+    public Long getNumberCity() {
+        return numberCity;
     }
 
-    public void setCountCity(Long countCity) {
-        this.countCity = countCity;
+    public void setNumberCity(Long numberCity) {
+        this.numberCity = numberCity;
     }
 }

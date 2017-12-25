@@ -1,7 +1,6 @@
 package hello.controllers;
 
 
-import hello.dto.CountCity;
 import hello.dto.CountryDto;
 import hello.entities.Country;
 import hello.repositories.CityRepository;
@@ -36,8 +35,16 @@ public class CountryController {
 
     @RequestMapping(path = "/add", method = RequestMethod.POST)
     public ResponseEntity<?> addCountry(@RequestBody CountryDto countryDto) {
+        if (countryDto.getName() == null || countryDto.getCode() == null)
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        if (countryDto.getName().equals("") || countryDto.getCode().equals(""))
+            return new ResponseEntity<>("Name or code is empty", HttpStatus.BAD_REQUEST);
         Country country = new Country();
+        if (countryRepository.findByName(countryDto.getName()).size() != 0)
+            return new ResponseEntity<>("Name is used", HttpStatus.CONFLICT);
         country.setName(countryDto.getName());
+        if (countryRepository.findByCode(countryDto.getCode()).size() != 0)
+            return new ResponseEntity<>("Code is used", HttpStatus.CONFLICT);
         country.setCode(countryDto.getCode());
         country.setCreatedDate(new Date());
         country.setModifiedDate(new Date());
@@ -52,7 +59,7 @@ public class CountryController {
                 countryRepository.delete(id);
                 return new ResponseEntity<>(HttpStatus.OK);
             } else {
-                return new ResponseEntity<>("City is used", HttpStatus.CONFLICT);
+                return new ResponseEntity<>("Country is used", HttpStatus.CONFLICT);
             }
         }
         return new ResponseEntity<>(HttpStatus.NOT_FOUND);
@@ -77,8 +84,26 @@ public class CountryController {
     //count city of country
     @RequestMapping(path = "/countcity", method = RequestMethod.GET)
     public ResponseEntity<?> countCityOfCountry() {
-        List<CountCity> result = countryRepository.countCity();
-        return new ResponseEntity<>(result, HttpStatus.OK);
+        return new ResponseEntity<>(countryRepository.countCity(), HttpStatus.OK);
+    }
+
+    @RequestMapping(path = "update", method = RequestMethod.PUT)
+    public ResponseEntity<?> updateCountry(@RequestBody CountryDto countryDto) {
+        if (countryDto.getId() == null || countryDto.getName() == null || countryDto.getCode() == null) {
+            return new ResponseEntity<>("value is null", HttpStatus.BAD_REQUEST);
+        }
+        if (countryRepository.exists(countryDto.getId())) {
+            if (countryDto.getName().equals("") || countryDto.getCode().equals(""))
+                return new ResponseEntity<>("Name and code is't empty", HttpStatus.BAD_REQUEST);
+            Country country = countryRepository.findOne(countryDto.getId());
+            country.setName(countryDto.getName());
+            country.setCode(countryDto.getCode());
+            country.setModifiedDate(new Date());
+            countryRepository.save(country);
+            return new ResponseEntity<>(HttpStatus.OK);
+        }
+        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+
     }
 
 }
