@@ -37,25 +37,23 @@ public class CompanyController {
 
     @RequestMapping(path = "/add", method = RequestMethod.POST)
     public ResponseEntity<?> addCompany(@RequestBody CompanyDto companyDto) {
-        if (companyDto.getName() == null || companyDto.getBusinessLicense() == null || companyDto.getCityDto() == null
-                || companyDto.getCityDto().getId() == null)
+        try {
+            if (cityRepository.exists(companyDto.getCityDto().getId())) {
+                City city = cityRepository.findOne(companyDto.getCityDto().getId());
+
+                Company company = new Company();
+                company.setName(companyDto.getName());
+                company.setBusinessLicense(companyDto.getBusinessLicense());
+                company.setCity(city);
+                company.setCreatedDate(new Date());
+                company.setModifiedDate(new Date());
+                companyRepository.save(company);
+                return new ResponseEntity<>(company, HttpStatus.CREATED);
+            }
+            return new ResponseEntity<>("City id is not exist", HttpStatus.NOT_FOUND);
+        } catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-        if (companyDto.getName().equals("") || companyDto.getBusinessLicense().equals(""))
-            return new ResponseEntity<>("Name or business license is null", HttpStatus.BAD_REQUEST);
-        if (cityRepository.exists(companyDto.getCityDto().getId())) {
-            City city = cityRepository.findOne(companyDto.getCityDto().getId());
-            Company company = new Company();
-            if (companyRepository.findByName(companyDto.getName()).size() != 0)
-                return new ResponseEntity<>("Name is used", HttpStatus.CONFLICT);
-            company.setName(companyDto.getName());
-            company.setBusinessLicense(companyDto.getBusinessLicense());
-            company.setCity(city);
-            company.setCreatedDate(new Date());
-            company.setModifiedDate(new Date());
-            companyRepository.save(company);
-            return new ResponseEntity<>(company, HttpStatus.CREATED);
         }
-        return new ResponseEntity<>("City id is not exist", HttpStatus.NOT_FOUND);
     }
 
     @RequestMapping(path = "/delete", method = RequestMethod.DELETE)
@@ -81,27 +79,5 @@ public class CompanyController {
         if (companyList.size() != 0)
             return new ResponseEntity<>(companyList, HttpStatus.OK);
         return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-    }
-
-    @RequestMapping(path = "/update", method = RequestMethod.PUT)
-    public ResponseEntity<?> updateCompany(@RequestBody CompanyDto companyDto) {
-        if (companyDto.getId() == null || companyDto.getName() == null || companyDto.getBusinessLicense() == null
-                || companyDto.getCityDto() == null || companyDto.getCityDto().getId() == null)
-            return new ResponseEntity<>("value is null", HttpStatus.BAD_REQUEST);
-        if (companyRepository.exists(companyDto.getId())) {
-            if (companyDto.getName().equals("") || companyDto.getBusinessLicense().equals(""))
-                return new ResponseEntity<>("name or businessLicense is null", HttpStatus.BAD_REQUEST);
-            if (cityRepository.exists(companyDto.getCityDto().getId())) {
-                Company company = companyRepository.findOne(companyDto.getId());
-                company.setName(companyDto.getName());
-                company.setBusinessLicense(companyDto.getBusinessLicense());
-                company.setCity(cityRepository.findOne(companyDto.getCityDto().getId()));
-                company.setModifiedDate(new Date());
-                return new ResponseEntity<>(companyRepository.save(company), HttpStatus.OK);
-            } else {
-                return new ResponseEntity<>("city id isn't exist", HttpStatus.NOT_FOUND);
-            }
-        }
-        return new ResponseEntity<>("company id isn't exist", HttpStatus.NOT_FOUND);
     }
 }

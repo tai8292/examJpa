@@ -69,10 +69,4 @@ public class CompanyRepositoryTest {
         assertEquals(companyList.get(0), companies.get(0));
     }
 
-    @Test
-    public void findByName() throws Exception {
-        List<Company> companies = companyRepository.findByName("CGV");
-        assertEquals(1, companies.size());
-        assertEquals(companyList.get(0), companies.get(0));
-    }
 }
