@@ -14,6 +14,7 @@ import javax.persistence.EntityManager;
 import java.util.List;
 
 import static org.junit.Assert.*;
+
 @RunWith(SpringRunner.class)
 @DataJpaTest
 public class CountryRepositoryTest {
@@ -38,8 +39,8 @@ public class CountryRepositoryTest {
         entityManager.flush();
 
         List<Country> found = countryRepository.findByBusinessCompany("Edu");
-        assertEquals(1,found.size());
-        assertEquals(country,found.get(0));
+        assertEquals(1, found.size());
+        assertEquals(country, found.get(0));
     }
 
     @Test
