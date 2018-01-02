@@ -3,6 +3,8 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/gs-mysql-data.iml" filepath="$PROJECT_DIR$/gs-mysql-data.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/gs-mysql-data_main.iml" filepath="$PROJECT_DIR$/.idea/modules/gs-mysql-data_main.iml" group="gs-mysql-data" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/gs-mysql-data_test.iml" filepath="$PROJECT_DIR$/.idea/modules/gs-mysql-data_test.iml" group="gs-mysql-data" />
     </modules>
   </component>
 </project>

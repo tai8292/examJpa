@@ -10,7 +10,11 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="examJpa_main" target="1.8" />
+      <module name="examJpa_test" target="1.8" />
       <module name="gs-mysql-data" target="1.8" />
+      <module name="gs-mysql-data_main" target="1.7" />
+      <module name="gs-mysql-data_test" target="1.7" />
     </bytecodeTargetLevel>
   </component>
 </project>

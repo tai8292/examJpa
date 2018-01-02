@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: hello.controllers.CompanyControllerTest
+-------------------------------------------------------------------------------
+Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.72 sec - in hello.controllers.CompanyControllerTest

@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=edge"/>
+<title>Test results - Class hello.controllers.CompanyControllerTest</title>
+<link href="../css/base-style.css" rel="stylesheet" type="text/css"/>
+<link href="../css/style.css" rel="stylesheet" type="text/css"/>
+<script src="../js/report.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="content">
+<h1>Class hello.controllers.CompanyControllerTest</h1>
+<div class="breadcrumbs">
+<a href="../index.html">all</a> &gt; 
+<a href="../packages/hello.controllers.html">hello.controllers</a> &gt; CompanyControllerTest</div>
+<div id="summary">
+<table>
+<tr>
+<td>
+<div class="summaryGroup">
+<table>
+<tr>
+<td>
+<div class="infoBox" id="tests">
+<div class="counter">12</div>
+<p>tests</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="failures">
+<div class="counter">0</div>
+<p>failures</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="ignored">
+<div class="counter">0</div>
+<p>ignored</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="duration">
+<div class="counter">0.531s</div>
+<p>duration</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td>
+<div class="infoBox success" id="successRate">
+<div class="percent">100%</div>
+<p>successful</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div id="tabs">
+<ul class="tabLinks">
+<li>
+<a href="#tab0">Tests</a>
+</li>
+<li>
+<a href="#tab1">Standard output</a>
+</li>
+</ul>
+<div id="tab0" class="tab">
+<h2>Tests</h2>
+<table>
+<thead>
+<tr>
+<th>Test</th>
+<th>Duration</th>
+<th>Result</th>
+</tr>
+</thead>
+<tr>
+<td class="success">addCompanyEmpty</td>
+<td>0.021s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">addCompanyNameConflict</td>
+<td>0.023s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">addCompanyNotFound</td>
+<td>0.019s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">addCompanyNull</td>
+<td>0.015s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">addCompanyOk</td>
+<td>0.125s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">deleteCompanyNotFound</td>
+<td>0.018s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">deleteCompanyOk</td>
+<td>0.024s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">findByCountryNameNotFound</td>
+<td>0.025s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">findByCountryNameOk</td>
+<td>0.019s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">findCompanyNotFound</td>
+<td>0.167s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">findCompanyOk</td>
+<td>0.040s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">getListCompany</td>
+<td>0.035s</td>
+<td class="success">passed</td>
+</tr>
+</table>
+</div>
+<div id="tab1" class="tab">
+<h2>Standard output</h2>
+<span class="code">
+<pre>16:44:33.875 [Test worker] DEBUG org.springframework.test.context.junit4.SpringJUnit4ClassRunner - SpringJUnit4ClassRunner constructor called with [class hello.controllers.CompanyControllerTest]
+16:44:33.879 [Test worker] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating CacheAwareContextLoaderDelegate from class [org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate]
+16:44:33.886 [Test worker] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating BootstrapContext using constructor [public org.springframework.test.context.support.DefaultBootstrapContext(java.lang.Class,org.springframework.test.context.CacheAwareContextLoaderDelegate)]
+16:44:33.904 [Test worker] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating TestContextBootstrapper for test class [hello.controllers.CompanyControllerTest] from class [org.springframework.boot.test.context.SpringBootTestContextBootstrapper]
+16:44:33.916 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Neither @ContextConfiguration nor @ContextHierarchy found for test class [hello.controllers.CompanyControllerTest], using SpringBootContextLoader
+16:44:33.919 [Test worker] DEBUG org.springframework.test.context.support.AbstractContextLoader - Did not detect default resource location for test class [hello.controllers.CompanyControllerTest]: class path resource [hello/controllers/CompanyControllerTest-context.xml] does not exist
+16:44:33.919 [Test worker] DEBUG org.springframework.test.context.support.AbstractContextLoader - Did not detect default resource location for test class [hello.controllers.CompanyControllerTest]: class path resource [hello/controllers/CompanyControllerTestContext.groovy] does not exist
+16:44:33.920 [Test worker] INFO org.springframework.test.context.support.AbstractContextLoader - Could not detect default resource locations for test class [hello.controllers.CompanyControllerTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+16:44:33.968 [Test worker] DEBUG org.springframework.test.context.support.ActiveProfilesUtils - Could not find an 'annotation declaring class' for annotation type [org.springframework.test.context.ActiveProfiles] and class [hello.controllers.CompanyControllerTest]
+16:44:33.999 [Test worker] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper - @TestExecutionListeners is not present for class [hello.controllers.CompanyControllerTest]: using defaults.
+16:44:34.002 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+16:44:34.019 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@100c6fb8, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@3f4d2173, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@1be6e672, org.springframework.test.context.support.DirtiesContextTestExecutionListener@5ad8156d, org.springframework.test.context.transaction.TransactionalTestExecutionListener@295ad021, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@7f4a2ac0, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@53b3862d, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@49da824b, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@36fe8889, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@18cca8bc, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@5781d766, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@4ad4cf07]
+16:44:34.022 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [hello.controllers.CompanyControllerTest]
+16:44:34.022 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [hello.controllers.CompanyControllerTest]
+16:44:34.023 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [hello.controllers.CompanyControllerTest]
+16:44:34.023 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [hello.controllers.CompanyControllerTest]
+16:44:34.027 [Test worker] DEBUG org.springframework.test.context.support.AbstractDirtiesContextTestExecutionListener - Before test class: context [DefaultTestContext@5dc91c26 testClass = CompanyControllerTest, testInstance = [null], testMethod = [null], testException = [null], mergedContextConfiguration = [WebMergedContextConfiguration@7ec928e6 testClass = CompanyControllerTest, locations = '{}', classes = '{class hello.Application, class hello.Application}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true}', contextCustomizers = set[[ImportsContextCustomizer@1693f309 key = [org.springframework.boot.test.autoconfigure.web.servlet.MockMvcAutoConfiguration, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcSecurityAutoConfiguration, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcWebClientAutoConfiguration, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcWebDriverAutoConfiguration]], org.springframework.boot.test.context.SpringBootTestContextCustomizer@4a430df6, org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@79f888f7, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@e7e8512, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@3f71d991], resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]]], class annotated with @DirtiesContext [false] with mode [null].
+16:44:34.028 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [hello.controllers.CompanyControllerTest]
+16:44:34.028 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [hello.controllers.CompanyControllerTest]
+16:44:34.087 [Test worker] DEBUG org.springframework.core.env.StandardEnvironment - Adding PropertySource 'systemProperties' with lowest search precedence
+16:44:34.088 [Test worker] DEBUG org.springframework.core.env.StandardEnvironment - Adding PropertySource 'systemEnvironment' with lowest search precedence
+16:44:34.089 [Test worker] DEBUG org.springframework.core.env.StandardEnvironment - Initialized StandardEnvironment with PropertySources [MapPropertySource@1194184394 {name='systemProperties', properties={java.runtime.name=Java(TM) SE Runtime Environment, sun.boot.library.path=/usr/lib/jvm/java-8-oracle/jre/lib/amd64, java.vm.version=25.151-b12, java.vm.vendor=Oracle Corporation, java.vendor.url=http://java.oracle.com/, path.separator=:, java.vm.name=Java HotSpot(TM) 64-Bit Server VM, file.encoding.pkg=sun.io, sun.java.launcher=SUN_STANDARD, user.country=US, sun.os.patch.level=unknown, java.vm.specification.name=Java Virtual Machine Specification, user.dir=/home/tantai/Documents/examJpa, java.runtime.version=1.8.0_151-b12, java.awt.graphicsenv=sun.awt.X11GraphicsEnvironment, java.endorsed.dirs=/usr/lib/jvm/java-8-oracle/jre/lib/endorsed, os.arch=amd64, java.io.tmpdir=/tmp, line.separator=
+, java.vm.specification.vendor=Oracle Corporation, user.variant=, os.name=Linux, sun.jnu.encoding=UTF-8, java.library.path=/home/tantai/Downloads/idea-IU-172.3968.16/bin:/home/tantai/Downloads/idea-IU-172.3968.16/bin::/usr/java/packages/lib/amd64:/usr/lib64:/lib64:/lib:/usr/lib, java.specification.name=Java Platform API Specification, java.class.version=52.0, sun.management.compiler=HotSpot 64-Bit Tiered Compilers, os.version=4.4.0-101-generic, user.home=/home/tantai, user.timezone=Asia/Ho_Chi_Minh, java.awt.printerjob=sun.print.PSPrinterJob, file.encoding=UTF-8, java.specification.version=1.8, java.class.path=/home/tantai/Documents/examJpa/build/classes/test:/home/tantai/Documents/examJpa/build/resources/test:/home/tantai/Documents/examJpa/build/classes/main:/home/tantai/Documents/examJpa/build/resources/main:/home/tantai/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-starter-web/1.5.8.RELEASE/7e0dc79e3b47be4539ad3c033639133ae6b7a17e/spring-boot-starter-web-1.5.8.RELEASE.jar:/home/tantai/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-starter-data-jpa/1.5.8.RELEASE/55bb5e8aea5707f79ee9888ad75261a7b7df4654/spring-boot-starter-data-jpa-1.5.8.RELEASE.jar:/home/tantai/.gradle/caches/modules-2/files-2.1/mysql/mysql-connector-java/5.1.44/61b6b998192c85bb581c6be90e03dcd4b9079db4/mysql-connector-java-5.1.44.jar:/home/tantai/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.dataformat/jackson-dataformat-xml/2.8.10/5cf5b7cc981df1d75b228e5331cb95709fef045f/jackson-dataformat-xml-2.8.10.jar:/home/tantai/.gradle/caches/modules-2/files-2.1/joda-time/joda-time/2.9.9/f7b520c458572890807d143670c9b24f4de90897/joda-time-2.9.9.jar:/home/tantai/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.datatype/jackson-datatype-joda/2.0.4/f7267452674a3b1c6bedbe0a3945728876d5315c/jackson-datatype-joda-2.0.4.jar:/home/tantai/.gradle/caches/modules-2/files-2.1/javax.servlet/javax.servlet-api/3.1.0/3cd63d075497751784b2fa84be59432f4905bf7c/javax.servlet-api-3.1.0.jar:/home/tantai/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-starter-test/1.5.3.RELEASE/c04072c6637e9a7798ef152dc04581d2644b56ed/spring-boot-starter-test-1.5.3.RELEASE.jar:/home/tantai/.gradle/caches/modules-2/files-2.1/com.h2database/h2/1.4.194/a180e95af52ad8116d52beb5f1d28596dcafa9d8/h2-1.4.194.jar:/home/tantai/.gradle/caches/modules-2/files-2.1/junit/junit/4.12/2973d150c0dc1fefe998f834810d68f278ea58ec/junit-4.12.jar:/home/tantai/.gradle/caches/modules-2/files-2.1/com.github.springtestdbunit/spring-test-dbunit/1.2.1/c566b9a055475347b3eafe8c772e1c47bb648860/spring-test-dbunit-1.2.1.jar:/home/tantai/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-starter/1.5.8.RELEASE/18048efe1f06569022a53cc3fb2fe9c0162935a3/spring-boot-starter-1.5.8.RELEASE.jar:/home/tantai/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-starter-tomcat/1.5.8.RELEASE/cf3b7eb7e192a60ab1dd09e4f8bce82710a5feb0/spring-boot-starter-tomcat-1.5.8.RELEASE.jar:/home/tantai/.gradle/caches/modules-2/files-2.1/org.hibernate/hibernate-validator/5.3.5.Final/622a9bcef2eed6d41b5b8e0662c36212009e375/hibernate-validator-5.3.5.Final.jar:/home/tantai/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-databind/2.8.10/f7b83cb2bc4b88d53961e749e1ad32f49ef017b7/jackson-databind-2.8.10.jar:/home/tantai/.gradle/caches/modules-2/files-2.1/org.springframework/spring-web/4.3.12.RELEASE/86c29588cca74d0fc848b194cb13fcdfd12bc990/spring-web-4.3.12.RELEASE.jar:/home/tantai/.gradle/caches/modules-2/files-2.1/org.springframework/spring-webmvc/4.3.12.RELEASE/986e5dcd4435e780f6be64f8185eaa51523cf851/spring-webmvc-4.3.12.RELEASE.jar:/home/tantai/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-starter-aop/1.5.8.RELEASE/9bc9a40e0718726ed48f6becc509b2d186f1ebcc/spring-boot-starter-aop-1.5.8.RELEASE.jar:/home/tantai/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-starter-jdbc/1.5.8.RELEASE/fc98631eba9817c920b9ac1c5845214f49637a33/spring-boot-starter-jdbc-1.5.8.RELEASE.jar:/home/tantai/.gradle/caches/modules-2/files-2.1/org.hibernate/hibernate-core/5.0.12.Final/e58bf1c660e6706d8e2cbb53bae110f574366102/hibernate-core-5.0.12.Final.jar:/home/tantai/.gradle/caches/modules-2/files-2.1/org.hibernate/hibernate-entitymanager/5.0.12.Final/302a526f5058290e9cbd719a5caf9f248d344719/hibernate-entitymanager-5.0.12.Final.jar:/home/tantai/.gradle/caches/modules-2/files-2.1/javax.transaction/javax.transaction-api/1.2/d81aff979d603edd90dcd8db2abc1f4ce6479e3e/javax.transaction-api-1.2.jar:/home/tantai/.gradle/caches/modules-2/files-2.1/org.springframework.data/spring-data-jpa/1.11.8.RELEASE/d674b8407de3d2998c106557fd6a6665de2bc217/spring-data-jpa-1.11.8.RELEASE.jar:/home/tantai/.gradle/caches/modules-2/files-2.1/org.springframework/spring-aspects/4.3.12.RELEASE/b0002bfdd0d58f09fc178afc5f2d0553ff117840/spring-aspects-4.3.12.RELEASE.jar:/home/tantai/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-core/2.8.10/eb21a035c66ad307e66ec8fce37f5d50fd62d039/jackson-core-2.8.10.jar:/home/tantai/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-annotations/2.8.0/45b426f7796b741035581a176744d91090e2e6fb/jackson-annotations-2.8.0.jar:/home/tantai/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.module/jackson-module-jaxb-annotations/2.8.10/22df8efd0cff7661bf136148c73e2651748f7600/jackson-module-jaxb-annotations-2.8.10.jar:/home/tantai/.gradle/caches/modules-2/files-2.1/org.codehaus.woodstox/stax2-api/3.1.4/ac19014b1e6a7c08aad07fe114af792676b685b7/stax2-api-3.1.4.jar:/home/tantai/.gradle/caches/modules-2/files-2.1/com.fasterxml.woodstox/woodstox-core/5.0.3/10aa199207fda142eff01cd61c69244877d71770/woodstox-core-5.0.3.jar:/home/tantai/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-test/1.5.3.RELEASE/ad57d8bacb4fc147ded7c99806f8693855f5fe29/spring-boot-test-1.5.3.RELEASE.jar:/home/tantai/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-test-autoconfigure/1.5.3.RELEASE/b0469a036d8c23f1d48e1a5bf9c0443ef2aa0fc3/spring-boot-test-autoconfigure-1.5.3.RELEASE.jar:/home/tantai/.gradle/caches/modules-2/files-2.1/com.jayway.jsonpath/json-path/2.2.0/22290d17944bd239fabf5ac69005a60a7ecbbbcb/json-path-2.2.0.jar:/home/tantai/.gradle/caches/modules-2/files-2.1/org.assertj/assertj-core/2.6.0/b532c3fc4f66bcfee4989a3514f1cd56203a33ad/assertj-core-2.6.0.jar:/home/tantai/.gradle/caches/modules-2/files-2.1/org.mockito/mockito-core/1.10.19/e8546f5bef4e061d8dd73895b4e8f40e3fe6effe/mockito-core-1.10.19.jar:/home/tantai/.gradle/caches/modules-2/files-2.1/org.hamcrest/hamcrest-core/1.3/42a25dc3219429f0e5d060061f71acb49bf010a0/hamcrest-core-1.3.jar:/home/tantai/.gradle/caches/modules-2/files-2.1/org.hamcrest/hamcrest-library/1.3/4785a3c21320980282f9f33d0d1264a69040538f/hamcrest-library-1.3.jar:/home/tantai/.gradle/caches/modules-2/files-2.1/org.skyscreamer/jsonassert/1.4.0/9cdbb373a06f6513e51e8c545ee6a5e981463edb/jsonassert-1.4.0.jar:/home/tantai/.gradle/caches/modules-2/files-2.1/org.springframework/spring-test/4.3.8.RELEASE/37e3896fb1d3fa08235224b1a7528f806de717cc/spring-test-4.3.8.RELEASE.jar:/home/tantai/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot/1.5.8.RELEASE/748ebde51761e12627ad23d064024f342b18f9b4/spring-boot-1.5.8.RELEASE.jar:/home/tantai/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-autoconfigure/1.5.8.RELEASE/e4f2efa4c319f4e3613d94fbccfdb5ccda6873e3/spring-boot-autoconfigure-1.5.8.RELEASE.jar:/home/tantai/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-starter-logging/1.5.8.RELEASE/ebc00a0e46753d90431fdcc5e3d6b9fd3bf1564a/spring-boot-starter-logging-1.5.8.RELEASE.jar:/home/tantai/.gradle/caches/modules-2/files-2.1/org.yaml/snakeyaml/1.17/7a27ea250c5130b2922b86dea63cbb1cc10a660c/snakeyaml-1.17.jar:/home/tantai/.gradle/caches/modules-2/files-2.1/org.apache.tomcat.embed/tomcat-embed-core/8.5.23/79261793a47f507890ee08f749b9d81774e4f7f0/tomcat-embed-core-8.5.23.jar:/home/tantai/.gradle/caches/modules-2/files-2.1/org.apache.tomcat.embed/tomcat-embed-el/8.5.23/98d979cde444dffa6d434c8377d0123b2dfa614c/tomcat-embed-el-8.5.23.jar:/home/tantai/.gradle/caches/modules-2/files-2.1/org.apache.tomcat.embed/tomcat-embed-websocket/8.5.23/52f07abcae10dc7e1764304b0877def175c2c833/tomcat-embed-websocket-8.5.23.jar:/home/tantai/.gradle/caches/modules-2/files-2.1/javax.validation/validation-api/1.1.0.Final/8613ae82954779d518631e05daa73a6a954817d5/validation-api-1.1.0.Final.jar:/home/tantai/.gradle/caches/modules-2/files-2.1/org.jboss.logging/jboss-logging/3.3.0.Final/3616bb87707910296e2c195dc016287080bba5af/jboss-logging-3.3.0.Final.jar:/home/tantai/.gradle/caches/modules-2/files-2.1/com.fasterxml/classmate/1.3.1/2ad2fd09dcf5607ca96f8ef432096a96986c40a/classmate-1.3.1.jar:/home/tantai/.gradle/caches/modules-2/files-2.1/org.springframework/spring-aop/4.3.12.RELEASE/b3fef085902993c2ef874c45c7bfd79296d5a5a4/spring-aop-4.3.12.RELEASE.jar:/home/tantai/.gradle/caches/modules-2/files-2.1/org.springframework/spring-beans/4.3.12.RELEASE/547dd432d47d0f01d9ccbedc4b705f9f7c1240a/spring-beans-4.3.12.RELEASE.jar:/home/tantai/.gradle/caches/modules-2/files-2.1/org.springframework/spring-context/4.3.12.RELEASE/5e6d26f36636f36b7efec1d6a0c5991284fbd95b/spring-context-4.3.12.RELEASE.jar:/home/tantai/.gradle/caches/modules-2/files-2.1/org.springframework/spring-expression/4.3.12.RELEASE/790f69f6ad7f9da8d4a92c603ad7244c398c8309/spring-expression-4.3.12.RELEASE.jar:/home/tantai/.gradle/caches/modules-2/files-2.1/org.aspectj/aspectjweaver/1.8.11/9807e0e13c8a295f15882721db50fa3d142c44a9/aspectjweaver-1.8.11.jar:/home/tantai/.gradle/caches/modules-2/files-2.1/org.apache.tomcat/tomcat-jdbc/8.5.23/6036400a8f2d90dd3ae3a4d09e5136c56002887b/tomcat-jdbc-8.5.23.jar:/home/tantai/.gradle/caches/modules-2/files-2.1/org.springframework/spring-jdbc/4.3.12.RELEASE/5c840abbdc1a1dfd0f79c4a4c25eac0c98e6af22/spring-jdbc-4.3.12.RELEASE.jar:/home/tantai/.gradle/caches/modules-2/files-2.1/org.hibernate.javax.persistence/hibernate-jpa-2.1-api/1.0.0.Final/5e731d961297e5a07290bfaf3db1fbc8bbbf405a/hibernate-jpa-2.1-api-1.0.0.Final.jar:/home/tantai/.gradle/caches/modules-2/files-2.1/org.javassist/javassist/3.18.1-GA/d9a09f7732226af26bf99f19e2cffe0ae219db5b/javassist-3.18.1-GA.jar:/home/tantai/.gradle/caches/modules-2/files-2.1/antlr/antlr/2.7.7/83cd2cd674a217ade95a4bb83a8a14f351f48bd0/antlr-2.7.7.jar:/home/tantai/.gradle/caches/modules-2/files-2.1/org.jboss/jandex/2.0.0.Final/3e899258936f94649c777193e1be846387ed54b3/jandex-2.0.0.Final.jar:/home/tantai/.gradle/caches/modules-2/files-2.1/dom4j/dom4j/1.6.1/5d3ccc056b6f056dbf0dddfdf43894b9065a8f94/dom4j-1.6.1.jar:/home/tantai/.gradle/caches/modules-2/files-2.1/org.hibernate.common/hibernate-commons-annotations/5.0.1.Final/71e1cff3fcb20d3b3af4f3363c3ddb24d33c6879/hibernate-commons-annotations-5.0.1.Final.jar:/home/tantai/.gradle/caches/modules-2/files-2.1/org.springframework.data/spring-data-commons/1.13.8.RELEASE/2853e3c38e02d42529f6c8b247d7bace40c25642/spring-data-commons-1.13.8.RELEASE.jar:/home/tantai/.gradle/caches/modules-2/files-2.1/org.springframework/spring-orm/4.3.12.RELEASE/47bbe35a92944aeedf06a388098581272f8db9bd/spring-orm-4.3.12.RELEASE.jar:/home/tantai/.gradle/caches/modules-2/files-2.1/org.springframework/spring-tx/4.3.12.RELEASE/7147b6839b2bf9db3621b79c73b4dddbe69572b6/spring-tx-4.3.12.RELEASE.jar:/home/tantai/.gradle/caches/modules-2/files-2.1/org.slf4j/slf4j-api/1.7.25/da76ca59f6a57ee3102f8f9bd9cee742973efa8a/slf4j-api-1.7.25.jar:/home/tantai/.gradle/caches/modules-2/files-2.1/org.slf4j/jcl-over-slf4j/1.7.25/f8c32b13ff142a513eeb5b6330b1588dcb2c0461/jcl-over-slf4j-1.7.25.jar:/home/tantai/.gradle/caches/modules-2/files-2.1/net.minidev/json-smart/2.2.1/5b9e5df7a62d1279b70dc882b041d249c4f0b002/json-smart-2.2.1.jar:/home/tantai/.gradle/caches/modules-2/files-2.1/org.objenesis/objenesis/2.1/87c0ea803b69252868d09308b4618f766f135a96/objenesis-2.1.jar:/home/tantai/.gradle/caches/modules-2/files-2.1/com.vaadin.external.google/android-json/0.0.20131108.vaadin1/fa26d351fe62a6a17f5cda1287c1c6110dec413f/android-json-0.0.20131108.vaadin1.jar:/home/tantai/.gradle/caches/modules-2/files-2.1/ch.qos.logback/logback-classic/1.1.11/ccedfbacef4a6515d2983e3f89ed753d5d4fb665/logback-classic-1.1.11.jar:/home/tantai/.gradle/caches/modules-2/files-2.1/org.slf4j/jul-to-slf4j/1.7.25/af5364cd6679bfffb114f0dec8a157aaa283b76/jul-to-slf4j-1.7.25.jar:/home/tantai/.gradle/caches/modules-2/files-2.1/org.slf4j/log4j-over-slf4j/1.7.25/a87bb47468f47ee7aabbd54f93e133d4215769c3/log4j-over-slf4j-1.7.25.jar:/home/tantai/.gradle/caches/modules-2/files-2.1/org.apache.tomcat/tomcat-annotations-api/8.5.23/aaf17df9fe0240e9e9d5375d24d5f177174b73d9/tomcat-annotations-api-8.5.23.jar:/home/tantai/.gradle/caches/modules-2/files-2.1/org.apache.tomcat/tomcat-juli/8.5.23/98e7f0610b7b2fb8303f11be0210e3f5a56a7d55/tomcat-juli-8.5.23.jar:/home/tantai/.gradle/caches/modules-2/files-2.1/xml-apis/xml-apis/1.0.b2/3136ca936f64c9d68529f048c2618bd356bf85c9/xml-apis-1.0.b2.jar:/home/tantai/.gradle/caches/modules-2/files-2.1/net.minidev/accessors-smart/1.1/a527213f2fea112a04c9bdf0ec0264e34104cd08/accessors-smart-1.1.jar:/home/tantai/.gradle/caches/modules-2/files-2.1/ch.qos.logback/logback-core/1.1.11/88b8df40340eed549fb07e2613879bf6b006704d/logback-core-1.1.11.jar:/home/tantai/.gradle/caches/modules-2/files-2.1/org.ow2.asm/asm/5.0.3/dcc2193db20e19e1feca8b1240dbbc4e190824fa/asm-5.0.3.jar:/home/tantai/.gradle/caches/modules-2/files-2.1/org.springframework/spring-core/4.3.12.RELEASE/4cebc69478c6d350dbd5af28e3db7d5694f416e3/spring-core-4.3.12.RELEASE.jar:/home/tantai/.gradle/caches/modules-2/files-2.1/commons-logging/commons-logging/1.2/4bfc12adfe4842bf07b657f0369c4cb522955686/commons-logging-1.2.jar, user.name=tantai, java.vm.specification.version=1.8, sun.java.command=jarjar.org.gradle.process.internal.launcher.GradleWorkerMain 'Gradle Test Executor 1', java.home=/usr/lib/jvm/java-8-oracle/jre, sun.arch.data.model=64, user.language=en, java.specification.vendor=Oracle Corporation, awt.toolkit=sun.awt.X11.XToolkit, java.vm.info=mixed mode, java.version=1.8.0_151, java.ext.dirs=/usr/lib/jvm/java-8-oracle/jre/lib/ext:/usr/java/packages/lib/ext, sun.boot.class.path=/usr/lib/jvm/java-8-oracle/jre/lib/resources.jar:/usr/lib/jvm/java-8-oracle/jre/lib/rt.jar:/usr/lib/jvm/java-8-oracle/jre/lib/sunrsasign.jar:/usr/lib/jvm/java-8-oracle/jre/lib/jsse.jar:/usr/lib/jvm/java-8-oracle/jre/lib/jce.jar:/usr/lib/jvm/java-8-oracle/jre/lib/charsets.jar:/usr/lib/jvm/java-8-oracle/jre/lib/jfr.jar:/usr/lib/jvm/java-8-oracle/jre/classes, java.vendor=Oracle Corporation, org.gradle.test.worker=1, file.separator=/, java.vendor.url.bug=http://bugreport.sun.com/bugreport/, sun.io.unicode.encoding=UnicodeLittle, sun.cpu.endian=little, sun.desktop=gnome, sun.cpu.isalist=}}, SystemEnvironmentPropertySource@870781004 {name='systemEnvironment', properties={PATH=/home/tantai/bin:/home/tantai/.local/bin:/home/tantai/bin:/home/tantai/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/jvm/java-8-oracle/bin:/usr/lib/jvm/java-8-oracle/db/bin:/usr/lib/jvm/java-8-oracle/jre/bin:/usr/lib/jvm/java-8-oracle/bin:/usr/lib/jvm/java-8-oracle/db/bin:/usr/lib/jvm/java-8-oracle/jre/bin, LC_MEASUREMENT=en_US.UTF-8, XAUTHORITY=/home/tantai/.Xauthority, XMODIFIERS=@im=ibus, LC_TELEPHONE=en_US.UTF-8, XDG_DATA_DIRS=/usr/share/pantheon:/usr/local/share/:/usr/share/, GDMSESSION=pantheon, MANDATORY_PATH=/usr/share/gconf/pantheon.mandatory.path, LC_TIME=en_US.UTF-8, PAPERSIZE=letter, GTK_IM_MODULE=ibus, DBUS_SESSION_BUS_ADDRESS=unix:abstract=/tmp/dbus-zEHUIgud7h,guid=4bcae99514850a76156082b95a4b2cfd, DEFAULTS_PATH=/usr/share/gconf/pantheon.default.path, XDG_CURRENT_DESKTOP=Pantheon, SSH_AGENT_PID=1464, LD_LIBRARY_PATH=/home/tantai/Downloads/idea-IU-172.3968.16/bin:/home/tantai/Downloads/idea-IU-172.3968.16/bin:, QT4_IM_MODULE=xim, LC_PAPER=en_US.UTF-8, SESSION_MANAGER=local/tantai-B85M-D3H:@/tmp/.ICE-unix/1390,unix/tantai-B85M-D3H:/tmp/.ICE-unix/1390, QT_LINUX_ACCESSIBILITY_ALWAYS_ON=1, LOGNAME=tantai, PWD=/home/tantai/Documents/examJpa, DERBY_HOME=/usr/lib/jvm/java-8-oracle/db, LANGUAGE=en_US, LESSOPEN=| /usr/bin/lesspipe %s, SHELL=/bin/bash, LC_ADDRESS=en_US.UTF-8, GIO_LAUNCHED_DESKTOP_FILE=/home/tantai/.local/share/applications/jetbrains-idea.desktop, J2SDKDIR=/usr/lib/jvm/java-8-oracle, OLDPWD=/usr/share/gradle, GNOME_DESKTOP_SESSION_ID=this-is-deprecated, GTK_MODULES=pantheon-filechooser-module, J2REDIR=/usr/lib/jvm/java-8-oracle/jre, XDG_SESSION_PATH=/org/freedesktop/DisplayManager/Session0, LS_COLORS=rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:, XDG_SESSION_DESKTOP=pantheon, BASH_FUNC_generate_command_executed_sequence%%=() {  printf '\e\7'
+}, SHLVL=1, LC_IDENTIFICATION=en_US.UTF-8, LESSCLOSE=/usr/bin/lesspipe %s %s, LC_MONETARY=en_US.UTF-8, QT_IM_MODULE=xim, JAVA_HOME=/usr/lib/jvm/java-8-oracle, TERM=xterm-256color, XFILESEARCHPATH=/usr/dt/app-defaults/%L/Dt, XDG_CONFIG_DIRS=/etc/xdg/xdg-pantheon:/etc/xdg, LANG=en_US.UTF-8, XDG_SEAT_PATH=/org/freedesktop/DisplayManager/Seat0, XDG_SESSION_ID=c2, XDG_SESSION_TYPE=x11, DISPLAY=:0, QT_STYLE_OVERRIDE=gtk, LC_NAME=en_US.UTF-8, GDM_LANG=en_US, XDG_GREETER_DATA_DIR=/var/lib/lightdm-data/tantai, DESKTOP_SESSION=pantheon, USER=tantai, XDG_MENU_PREFIX=gnome-, GTK_CSD=1, GIO_LAUNCHED_DESKTOP_FILE_PID=4013, QT_ACCESSIBILITY=1, LC_NUMERIC=en_US.UTF-8, SSH_AUTH_SOCK=/tmp/ssh-o5E5dD1UYn8C/agent.1390, XDG_SEAT=seat0, NLSPATH=/usr/dt/lib/nls/msg/%L/%N.cat, GSETTINGS_SCHEMA_DIR=/home/tantai/data, XDG_VTNR=7, XDG_RUNTIME_DIR=/run/user/1000, HOME=/home/tantai}}]
+16:44:34.092 [Test worker] DEBUG org.springframework.core.env.MutablePropertySources - Adding PropertySource 'inline' with highest search precedence
+16:44:34.097 [Test worker] DEBUG org.springframework.test.context.support.TestPropertySourceUtils - Adding inlined properties to environment: {spring.jmx.enabled=false, org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true, server.port=-1}
+16:44:34.098 [Test worker] DEBUG org.springframework.core.env.StandardEnvironment - Adding PropertySource 'Inlined Test Properties' with highest search precedence
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::        (v1.5.8.RELEASE)
+
+2018-01-02 16:44:34.339  INFO 14177 --- [    Test worker] hello.controllers.CompanyControllerTest  : Starting CompanyControllerTest on tantai-B85M-D3H with PID 14177 (started by tantai in /home/tantai/Documents/examJpa)
+2018-01-02 16:44:34.340  INFO 14177 --- [    Test worker] hello.controllers.CompanyControllerTest  : No active profile set, falling back to default profiles: default
+2018-01-02 16:44:34.377  INFO 14177 --- [    Test worker] o.s.w.c.s.GenericWebApplicationContext   : Refreshing org.springframework.web.context.support.GenericWebApplicationContext@1c50641b: startup date [Tue Jan 02 16:44:34 ICT 2018]; root of context hierarchy
+2018-01-02 16:44:36.174  INFO 14177 --- [    Test worker] j.LocalContainerEntityManagerFactoryBean : Building JPA container EntityManagerFactory for persistence unit 'default'
+2018-01-02 16:44:36.191  INFO 14177 --- [    Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2018-01-02 16:44:36.259  INFO 14177 --- [    Test worker] org.hibernate.Version                    : HHH000412: Hibernate Core {5.0.12.Final}
+2018-01-02 16:44:36.261  INFO 14177 --- [    Test worker] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2018-01-02 16:44:36.262  INFO 14177 --- [    Test worker] org.hibernate.cfg.Environment            : HHH000021: Bytecode provider name : javassist
+2018-01-02 16:44:36.305  INFO 14177 --- [    Test worker] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2018-01-02 16:44:36.502  INFO 14177 --- [    Test worker] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2018-01-02 16:44:37.028  INFO 14177 --- [    Test worker] org.hibernate.tool.hbm2ddl.SchemaExport  : HHH000227: Running hbm2ddl schema export
+2018-01-02 16:44:37.072  INFO 14177 --- [    Test worker] org.hibernate.tool.hbm2ddl.SchemaExport  : HHH000230: Schema export complete
+2018-01-02 16:44:37.110  INFO 14177 --- [    Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2018-01-02 16:44:37.381  INFO 14177 --- [    Test worker] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
+2018-01-02 16:44:37.778  INFO 14177 --- [    Test worker] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring FrameworkServlet ''
+2018-01-02 16:44:37.778  INFO 14177 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : FrameworkServlet '': initialization started
+2018-01-02 16:44:37.940  INFO 14177 --- [    Test worker] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped &quot;{[/city/findByBusiness],methods=[GET]}&quot; onto public org.springframework.http.ResponseEntity&lt;?&gt; hello.controllers.CityController.findByBusinessCompany(java.lang.String)
+2018-01-02 16:44:37.943  INFO 14177 --- [    Test worker] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped &quot;{[/city/all],methods=[GET]}&quot; onto public org.springframework.http.ResponseEntity&lt;?&gt; hello.controllers.CityController.getListCity(int)
+2018-01-02 16:44:37.944  INFO 14177 --- [    Test worker] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped &quot;{[/city/add],methods=[POST]}&quot; onto public org.springframework.http.ResponseEntity&lt;?&gt; hello.controllers.CityController.addCity(hello.dto.CityDto)
+2018-01-02 16:44:37.944  INFO 14177 --- [    Test worker] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped &quot;{[/city/delete],methods=[DELETE]}&quot; onto public org.springframework.http.ResponseEntity&lt;?&gt; hello.controllers.CityController.deleteCity(java.lang.Long)
+2018-01-02 16:44:37.944  INFO 14177 --- [    Test worker] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped &quot;{[/city/find1],methods=[GET]}&quot; onto public org.springframework.http.ResponseEntity&lt;?&gt; hello.controllers.CityController.findByCountryNameAndCompanyBusiness(java.lang.String,java.lang.String)
+2018-01-02 16:44:37.944  INFO 14177 --- [    Test worker] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped &quot;{[/city/update],methods=[PUT]}&quot; onto public org.springframework.http.ResponseEntity&lt;?&gt; hello.controllers.CityController.updateCity(hello.dto.CityDto)
+2018-01-02 16:44:37.947  INFO 14177 --- [    Test worker] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped &quot;{[/company/all],methods=[GET]}&quot; onto public org.springframework.http.ResponseEntity&lt;?&gt; hello.controllers.CompanyController.getListCompany(int)
+2018-01-02 16:44:37.948  INFO 14177 --- [    Test worker] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped &quot;{[/company/find/country],methods=[GET]}&quot; onto public org.springframework.http.ResponseEntity&lt;?&gt; hello.controllers.CompanyController.findByCountryName(java.lang.String)
+2018-01-02 16:44:37.948  INFO 14177 --- [    Test worker] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped &quot;{[/company/add],methods=[POST]}&quot; onto public org.springframework.http.ResponseEntity&lt;?&gt; hello.controllers.CompanyController.addCompany(hello.dto.CompanyDto)
+2018-01-02 16:44:37.948  INFO 14177 --- [    Test worker] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped &quot;{[/company/delete],methods=[DELETE]}&quot; onto public org.springframework.http.ResponseEntity&lt;?&gt; hello.controllers.CompanyController.deleteCompany(java.lang.Long)
+2018-01-02 16:44:37.948  INFO 14177 --- [    Test worker] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped &quot;{[/company/find],methods=[GET]}&quot; onto public org.springframework.http.ResponseEntity&lt;?&gt; hello.controllers.CompanyController.findCompany(java.lang.String)
+2018-01-02 16:44:37.949  INFO 14177 --- [    Test worker] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped &quot;{[/company/update],methods=[PUT]}&quot; onto public org.springframework.http.ResponseEntity&lt;?&gt; hello.controllers.CompanyController.updateCompany(hello.dto.CompanyDto)
+2018-01-02 16:44:37.953  INFO 14177 --- [    Test worker] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped &quot;{[/country/find/business],methods=[GET]}&quot; onto public org.springframework.http.ResponseEntity&lt;?&gt; hello.controllers.CountryController.findByBusinessCompany(java.lang.String)
+2018-01-02 16:44:37.954  INFO 14177 --- [    Test worker] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped &quot;{[/country/all],methods=[GET]}&quot; onto public org.springframework.http.ResponseEntity&lt;?&gt; hello.controllers.CountryController.getListCountry(int)
+2018-01-02 16:44:37.954  INFO 14177 --- [    Test worker] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped &quot;{[/country/add],methods=[POST]}&quot; onto public org.springframework.http.ResponseEntity&lt;?&gt; hello.controllers.CountryController.addCountry(hello.dto.CountryDto)
+2018-01-02 16:44:37.954  INFO 14177 --- [    Test worker] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped &quot;{[/country/delete],methods=[DELETE]}&quot; onto public org.springframework.http.ResponseEntity&lt;?&gt; hello.controllers.CountryController.deleteCountry(java.lang.Long)
+2018-01-02 16:44:37.955  INFO 14177 --- [    Test worker] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped &quot;{[/country],methods=[GET]}&quot; onto public org.springframework.http.ResponseEntity&lt;?&gt; hello.controllers.CountryController.findById(java.lang.Long)
+2018-01-02 16:44:37.955  INFO 14177 --- [    Test worker] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped &quot;{[/country/countcity],methods=[GET]}&quot; onto public org.springframework.http.ResponseEntity&lt;?&gt; hello.controllers.CountryController.countCityOfCountry()
+2018-01-02 16:44:37.955  INFO 14177 --- [    Test worker] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped &quot;{[/country/update],methods=[PUT]}&quot; onto public org.springframework.http.ResponseEntity&lt;?&gt; hello.controllers.CountryController.updateCountry(hello.dto.CountryDto)
+2018-01-02 16:44:37.958  INFO 14177 --- [    Test worker] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped &quot;{[/error],produces=[text/html]}&quot; onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-01-02 16:44:37.959  INFO 14177 --- [    Test worker] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped &quot;{[/error]}&quot; onto public org.springframework.http.ResponseEntity&lt;java.util.Map&lt;java.lang.String, java.lang.Object&gt;&gt; org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-01-02 16:44:37.996  INFO 14177 --- [    Test worker] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-01-02 16:44:37.996  INFO 14177 --- [    Test worker] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-01-02 16:44:38.018  INFO 14177 --- [    Test worker] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-01-02 16:44:38.292  INFO 14177 --- [    Test worker] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.web.context.support.GenericWebApplicationContext@1c50641b: startup date [Tue Jan 02 16:44:34 ICT 2018]; root of context hierarchy
+2018-01-02 16:44:38.404  INFO 14177 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : FrameworkServlet '': initialization completed in 626 ms
+2018-01-02 16:44:38.650  INFO 14177 --- [    Test worker] hello.controllers.CompanyControllerTest  : Started CompanyControllerTest in 4.544 seconds (JVM running for 5.438)
+</pre>
+</span>
+</div>
+</div>
+<div id="footer">
+<p>
+<div>
+<label class="hidden" id="label-for-line-wrapping-toggle" for="line-wrapping-toggle">Wrap lines
+<input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
+</label>
+</div>Generated by 
+<a href="http://www.gradle.org">Gradle 2.10</a> at Jan 2, 2018 4:44:40 PM</p>
+</div>
+</div>
+</body>
+</html>

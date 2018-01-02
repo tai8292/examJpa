@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="hello.controllers.CityControllerTest" tests="14" skipped="0" failures="0" errors="0" timestamp="2018-01-02T09:44:39" hostname="tantai-B85M-D3H" time="0.242">
+  <properties/>
+  <testcase name="addCityCodeConflict" classname="hello.controllers.CityControllerTest" time="0.03"/>
+  <testcase name="addCityNotFound" classname="hello.controllers.CityControllerTest" time="0.017"/>
+  <testcase name="addCityEmpty" classname="hello.controllers.CityControllerTest" time="0.014"/>
+  <testcase name="deleteCityOk" classname="hello.controllers.CityControllerTest" time="0.017"/>
+  <testcase name="findByBusinessCompanyOk" classname="hello.controllers.CityControllerTest" time="0.016"/>
+  <testcase name="findByBusinessCompanyNotFound" classname="hello.controllers.CityControllerTest" time="0.015"/>
+  <testcase name="getListCity" classname="hello.controllers.CityControllerTest" time="0.014"/>
+  <testcase name="findByCountryNameAndCompanyBusinessOk" classname="hello.controllers.CityControllerTest" time="0.018"/>
+  <testcase name="addCityCreate" classname="hello.controllers.CityControllerTest" time="0.022"/>
+  <testcase name="deleteCityNotFound" classname="hello.controllers.CityControllerTest" time="0.013"/>
+  <testcase name="findByCountryNameAndCompanyBusinessNotFound" classname="hello.controllers.CityControllerTest" time="0.014"/>
+  <testcase name="addCityNameConflict" classname="hello.controllers.CityControllerTest" time="0.015"/>
+  <testcase name="deleteCityConFlict" classname="hello.controllers.CityControllerTest" time="0.014"/>
+  <testcase name="addCityNull" classname="hello.controllers.CityControllerTest" time="0.014"/>
+  <system-out><![CDATA[2018-01-02 16:44:39.209  INFO 14177 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Neither @ContextConfiguration nor @ContextHierarchy found for test class [hello.controllers.CityControllerTest], using SpringBootContextLoader
+2018-01-02 16:44:39.210  INFO 14177 --- [    Test worker] o.s.t.c.support.AbstractContextLoader    : Could not detect default resource locations for test class [hello.controllers.CityControllerTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+2018-01-02 16:44:39.219  INFO 14177 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+2018-01-02 16:44:39.221  INFO 14177 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@38da84d8, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@14fc2fdb, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@3b0033c9, org.springframework.test.context.support.DirtiesContextTestExecutionListener@7744baa9, org.springframework.test.context.transaction.TransactionalTestExecutionListener@1b541cdd, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@6e236a9b, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@540792ed, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@644fb36, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@3d4dadd7, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@48cf6f57, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@20371c59, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@10bde22]
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
